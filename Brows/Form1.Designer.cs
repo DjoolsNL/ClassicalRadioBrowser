@@ -36,7 +36,9 @@
             buttonSuggesties = new Button();
             buttonSettings = new Button();
             buttonAdd = new Button();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // webView21
@@ -45,23 +47,23 @@
             webView21.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             webView21.CreationProperties = null;
             webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(1, 47);
+            webView21.Location = new Point(1, 49);
             webView21.Name = "webView21";
-            webView21.Size = new Size(946, 591);
-            webView21.Source = new Uri("https://www.buienradar.nl/nederland/neerslag/buienradar", UriKind.Absolute);
+            webView21.Size = new Size(946, 589);
+            webView21.Source = new Uri("https://www.knmi.nl", UriKind.Absolute);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 12);
+            textBox1.Location = new Point(11, 11);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(315, 23);
             textBox1.TabIndex = 1;
             // 
             // buttonGo
             // 
-            buttonGo.Location = new Point(333, 12);
+            buttonGo.Location = new Point(332, 11);
             buttonGo.Name = "buttonGo";
             buttonGo.Size = new Size(42, 23);
             buttonGo.TabIndex = 2;
@@ -74,7 +76,7 @@
             comboBoxFavorieten.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFavorieten.FormattingEnabled = true;
             comboBoxFavorieten.Items.AddRange(new object[] { "www.classicalwcrb.org/", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "google.com" });
-            comboBoxFavorieten.Location = new Point(432, 11);
+            comboBoxFavorieten.Location = new Point(431, 10);
             comboBoxFavorieten.Name = "comboBoxFavorieten";
             comboBoxFavorieten.Size = new Size(268, 23);
             comboBoxFavorieten.TabIndex = 3;
@@ -82,7 +84,7 @@
             // 
             // buttonSuggesties
             // 
-            buttonSuggesties.Location = new Point(860, 9);
+            buttonSuggesties.Location = new Point(859, 8);
             buttonSuggesties.Name = "buttonSuggesties";
             buttonSuggesties.Size = new Size(75, 25);
             buttonSuggesties.TabIndex = 4;
@@ -94,7 +96,7 @@
             // 
             buttonSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSettings.Image = Properties.Resources.gear;
-            buttonSettings.Location = new Point(815, 9);
+            buttonSettings.Location = new Point(814, 8);
             buttonSettings.Name = "buttonSettings";
             buttonSettings.Size = new Size(39, 25);
             buttonSettings.TabIndex = 5;
@@ -103,7 +105,7 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(381, 12);
+            buttonAdd.Location = new Point(380, 11);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(42, 23);
             buttonAdd.TabIndex = 6;
@@ -111,25 +113,35 @@
             buttonAdd.UseVisualStyleBackColor = true;
             buttonAdd.Click += buttonAdd_Click;
             // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(buttonAdd);
+            panel1.Controls.Add(buttonGo);
+            panel1.Controls.Add(buttonSettings);
+            panel1.Controls.Add(comboBoxFavorieten);
+            panel1.Controls.Add(buttonSuggesties);
+            panel1.Location = new Point(1, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(946, 43);
+            panel1.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(947, 638);
-            Controls.Add(buttonAdd);
-            Controls.Add(buttonSettings);
-            Controls.Add(buttonSuggesties);
-            Controls.Add(comboBoxFavorieten);
-            Controls.Add(buttonGo);
-            Controls.Add(textBox1);
+            Controls.Add(panel1);
             Controls.Add(webView21);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Klassieke Muziek Browser";
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -141,5 +153,6 @@
         private Button buttonSuggesties;
         private Button buttonSettings;
         private Button buttonAdd;
+        private Panel panel1;
     }
 }
