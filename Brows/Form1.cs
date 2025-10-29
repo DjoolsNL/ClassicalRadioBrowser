@@ -7,6 +7,8 @@ namespace Brows
             InitializeComponent();
         }
 
+        // Dit gebeurt er als je de button Go klikt:
+        // de text die in textBox1 staat wordt omgezet naar een link voor de browser (webview21)  
         private void buttonGo_Click(object sender, EventArgs e)
         {
             System.Uri url = new Uri(textBox1.Text);
@@ -14,21 +16,29 @@ namespace Brows
         }
 
 
+        // Dit gebeurt er als je de button Add klikt:
+        // de text in textBox1 wordt gestripped en toegevoegd aan de comboBoxFavorieten
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             string strippedUrl = textBox1.Text.Substring(8);
             comboBoxFavorieten.Items.Add(strippedUrl);
         }
 
+        // Dit gebeurt er telkens als je een keuze maakt binnen de comboBoxFavorieten:
+        // De gekozen optie wordt voorzien van een https:// en die wordt als link aan webview21 gegeven
         private void comboBoxFavorieten_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cb1 = sender as ComboBox;
-            string url = "https://" + cb1.SelectedItem.ToString();
+            ComboBox? cbFav = sender as ComboBox;
+            string url = $"https://{cbFav!.SelectedItem}";
             System.Uri uri = new Uri(url);
             webView21.Source = uri;
             textBox1.Text = url;
         }
 
+        // Dit gebeurt er als je op de button Suggesties klikt:
+        // In de body van de method hierbeneden wordt een string gedefineerd en die
+        // gaat tussen de haakjes () van webView21.NavigateToString();
+        // 
         private void buttonSuggesties_Click(object sender, EventArgs e)
         {
             // Kijk zo doe je dat als je je eigen content will weergeven in de browser.
@@ -43,16 +53,6 @@ namespace Brows
                 een browser te maken gericht op je hobby 
                 ";
             webView21.NavigateToString(suggesties);
-        }
-    }
-
-    public class Form2 : Form1
-    {
-        public Form2()
-        {
-            //Form2 form2 = new Form2();
-            //form2.Show();
-            this.Size = new System.Drawing.Size(555, 555);
         }
     }
 }
