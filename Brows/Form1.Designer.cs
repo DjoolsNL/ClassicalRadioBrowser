@@ -50,7 +50,7 @@
             webView21.Location = new Point(4, 52);
             webView21.Name = "webView21";
             webView21.Size = new Size(940, 583);
-            webView21.Source = new Uri("https://www.knmi.nl", UriKind.Absolute);
+            webView21.Source = new Uri("https://www.concertzender.nl/themakanalen/", UriKind.Absolute);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
