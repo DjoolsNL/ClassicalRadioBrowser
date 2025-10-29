@@ -65,7 +65,7 @@
             // 
             buttonGo.Location = new Point(332, 11);
             buttonGo.Name = "buttonGo";
-            buttonGo.Size = new Size(42, 23);
+            buttonGo.Size = new Size(42, 22);
             buttonGo.TabIndex = 2;
             buttonGo.Text = "Go";
             buttonGo.UseVisualStyleBackColor = true;
@@ -84,9 +84,10 @@
             // 
             // buttonSuggesties
             // 
-            buttonSuggesties.Location = new Point(859, 8);
+            buttonSuggesties.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSuggesties.Location = new Point(859, 10);
             buttonSuggesties.Name = "buttonSuggesties";
-            buttonSuggesties.Size = new Size(75, 25);
+            buttonSuggesties.Size = new Size(75, 23);
             buttonSuggesties.TabIndex = 4;
             buttonSuggesties.Text = "Suggesties";
             buttonSuggesties.UseVisualStyleBackColor = true;
@@ -94,18 +95,19 @@
             // 
             // buttonSettings
             // 
+            buttonSettings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSettings.Image = Properties.Resources.gear;
-            buttonSettings.Location = new Point(814, 8);
+            buttonSettings.Location = new Point(814, 10);
             buttonSettings.Name = "buttonSettings";
-            buttonSettings.Size = new Size(39, 25);
+            buttonSettings.Size = new Size(39, 23);
             buttonSettings.TabIndex = 5;
             buttonSettings.UseVisualStyleBackColor = true;
             buttonSettings.Click += buttonSettings_Click;
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(380, 11);
+            buttonAdd.Location = new Point(380, 10);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(42, 23);
             buttonAdd.TabIndex = 6;
@@ -122,9 +124,10 @@
             panel1.Controls.Add(buttonSettings);
             panel1.Controls.Add(comboBoxFavorieten);
             panel1.Controls.Add(buttonSuggesties);
-            panel1.Location = new Point(1, 0);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(946, 43);
+            panel1.Size = new Size(947, 43);
             panel1.TabIndex = 7;
             // 
             // Form1
