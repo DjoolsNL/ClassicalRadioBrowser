@@ -34,7 +34,7 @@
             buttonGo = new Button();
             comboBoxFavorieten = new ComboBox();
             buttonSuggesties = new Button();
-            button3 = new Button();
+            buttonSettings = new Button();
             buttonAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             SuspendLayout();
@@ -90,15 +90,16 @@
             buttonSuggesties.UseVisualStyleBackColor = true;
             buttonSuggesties.Click += buttonSuggesties_Click;
             // 
-            // button3
+            // buttonSettings
             // 
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(815, 9);
-            button3.Name = "button3";
-            button3.Size = new Size(39, 25);
-            button3.TabIndex = 5;
-            button3.Text = ". . .";
-            button3.UseVisualStyleBackColor = true;
+            buttonSettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSettings.Image = Properties.Resources.gear;
+            buttonSettings.Location = new Point(815, 9);
+            buttonSettings.Name = "buttonSettings";
+            buttonSettings.Size = new Size(39, 25);
+            buttonSettings.TabIndex = 5;
+            buttonSettings.UseVisualStyleBackColor = true;
+            buttonSettings.Click += buttonSettings_Click;
             // 
             // buttonAdd
             // 
@@ -117,7 +118,7 @@
             BackColor = Color.White;
             ClientSize = new Size(947, 638);
             Controls.Add(buttonAdd);
-            Controls.Add(button3);
+            Controls.Add(buttonSettings);
             Controls.Add(buttonSuggesties);
             Controls.Add(comboBoxFavorieten);
             Controls.Add(buttonGo);
@@ -125,7 +126,7 @@
             Controls.Add(webView21);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Jules on Edge";
+            Text = "Klassieke Muziek Browser";
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -138,7 +139,7 @@
         private Button buttonGo;
         private ComboBox comboBoxFavorieten;
         private Button buttonSuggesties;
-        private Button button3;
+        private Button buttonSettings;
         private Button buttonAdd;
     }
 }

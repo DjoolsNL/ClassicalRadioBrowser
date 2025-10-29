@@ -54,5 +54,10 @@ namespace Brows
                 ";
             webView21.NavigateToString(suggesties);
         }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            // hier kun je settings programmeren.
+        }
     }
 }
