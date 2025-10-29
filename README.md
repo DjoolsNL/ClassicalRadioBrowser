@@ -1,0 +1,1 @@
+Maak je eigen browser met je favoriete muziekstreams. In deze repo hebben we de url naar een paar radio stations voor klassieke muziek gezet. Vervang die met wat jij wil. Bouw het ding verder uit zodat je de favorieten kunt editten vanuit de app. Dus favorieten kunnen toevoegen en verwijderen. Etc. 
