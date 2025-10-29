@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             textBox1 = new TextBox();
-            button1 = new Button();
-            comboBox1 = new ComboBox();
-            button2 = new Button();
+            buttonGo = new Button();
+            comboBoxFavorieten = new ComboBox();
+            buttonSuggesties = new Button();
             button3 = new Button();
-            button4 = new Button();
+            buttonAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             SuspendLayout();
             // 
@@ -59,36 +59,36 @@
             textBox1.Size = new Size(315, 23);
             textBox1.TabIndex = 1;
             // 
-            // button1
+            // buttonGo
             // 
-            button1.Location = new Point(333, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(42, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Go";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonGo.Location = new Point(333, 12);
+            buttonGo.Name = "buttonGo";
+            buttonGo.Size = new Size(42, 23);
+            buttonGo.TabIndex = 2;
+            buttonGo.Text = "Go";
+            buttonGo.UseVisualStyleBackColor = true;
+            buttonGo.Click += buttonGo_Click;
             // 
-            // comboBox1
+            // comboBoxFavorieten
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "www.classicalwcrb.org/", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "google.com" });
-            comboBox1.Location = new Point(432, 11);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(268, 23);
-            comboBox1.TabIndex = 3;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            comboBoxFavorieten.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFavorieten.FormattingEnabled = true;
+            comboBoxFavorieten.Items.AddRange(new object[] { "www.classicalwcrb.org/", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "google.com" });
+            comboBoxFavorieten.Location = new Point(432, 11);
+            comboBoxFavorieten.Name = "comboBoxFavorieten";
+            comboBoxFavorieten.Size = new Size(268, 23);
+            comboBoxFavorieten.TabIndex = 3;
+            comboBoxFavorieten.SelectedIndexChanged += comboBoxFavorieten_SelectedIndexChanged;
             // 
-            // button2
+            // buttonSuggesties
             // 
-            button2.Location = new Point(860, 9);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 25);
-            button2.TabIndex = 4;
-            button2.Text = "Suggesties";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            buttonSuggesties.Location = new Point(860, 9);
+            buttonSuggesties.Name = "buttonSuggesties";
+            buttonSuggesties.Size = new Size(75, 25);
+            buttonSuggesties.TabIndex = 4;
+            buttonSuggesties.Text = "Suggesties";
+            buttonSuggesties.UseVisualStyleBackColor = true;
+            buttonSuggesties.Click += buttonSuggesties_Click;
             // 
             // button3
             // 
@@ -100,15 +100,15 @@
             button3.Text = ". . .";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonAdd
             // 
-            button4.Location = new Point(381, 12);
-            button4.Name = "button4";
-            button4.Size = new Size(42, 23);
-            button4.TabIndex = 6;
-            button4.Text = "Add";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            buttonAdd.Location = new Point(381, 12);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(42, 23);
+            buttonAdd.TabIndex = 6;
+            buttonAdd.Text = "Add";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
             // 
             // Form1
             // 
@@ -116,11 +116,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(947, 638);
-            Controls.Add(button4);
+            Controls.Add(buttonAdd);
             Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(comboBox1);
-            Controls.Add(button1);
+            Controls.Add(buttonSuggesties);
+            Controls.Add(comboBoxFavorieten);
+            Controls.Add(buttonGo);
             Controls.Add(textBox1);
             Controls.Add(webView21);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -135,10 +135,10 @@
 
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private TextBox textBox1;
-        private Button button1;
-        private ComboBox comboBox1;
-        private Button button2;
+        private Button buttonGo;
+        private ComboBox comboBoxFavorieten;
+        private Button buttonSuggesties;
         private Button button3;
-        private Button button4;
+        private Button buttonAdd;
     }
 }

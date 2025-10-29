@@ -7,13 +7,29 @@ namespace Brows
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonGo_Click(object sender, EventArgs e)
         {
             System.Uri url = new Uri(textBox1.Text);
             webView21.Source = url;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            string strippedUrl = textBox1.Text.Substring(8);
+            comboBoxFavorieten.Items.Add(strippedUrl);
+        }
+
+        private void comboBoxFavorieten_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb1 = sender as ComboBox;
+            string url = "https://" + cb1.SelectedItem.ToString();
+            System.Uri uri = new Uri(url);
+            webView21.Source = uri;
+            textBox1.Text = url;
+        }
+
+        private void buttonSuggesties_Click(object sender, EventArgs e)
         {
             // Kijk zo doe je dat als je je eigen content will weergeven in de browser.
             // Je gebruikt dan de webView21.NavigateToString() property van de webview. De string tussen de () wordt dan in de browser
@@ -27,21 +43,6 @@ namespace Brows
                 een browser te maken gericht op je hobby 
                 ";
             webView21.NavigateToString(suggesties);
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox cb1 = sender as ComboBox;
-            string url = "https://" + cb1.SelectedItem.ToString();
-            System.Uri uri = new Uri(url);
-            webView21.Source = uri;
-            textBox1.Text = url;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string strippedUrl = textBox1.Text.Substring(8);
-            comboBox1.Items.Add(strippedUrl);
         }
     }
 
