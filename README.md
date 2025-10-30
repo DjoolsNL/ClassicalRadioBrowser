@@ -2,4 +2,4 @@ Maak je eigen browser met je favoriete muziekstreams. In deze repo hebben we een
 
 Ga aan de slag. Zet je fantasie in werking wat je allemaal zou kunnen doen met de mogelijkheden die je hebt. Geen inspiratie? Ga op internet naar inspiratie zoeken. Zoek voorbeelden. 
 
-In de vid how to build from scratcch zie je van minuut 1.20 tot 3.05 hoe je de webview2 package in je app kunt opnemen.
+In de video how to build from scratch zie je van minuut 1.20 tot 3.05 hoe je de webview2 package in je app kunt opnemen.
