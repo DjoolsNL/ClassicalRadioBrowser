@@ -64,24 +64,11 @@ namespace Brows
 
                 // code voor settings
             }
-
         }
 
         private void buttonApplyZoomFactor_Click(object sender, EventArgs e)
         {
             //webView21.ZoomFactor = (double)numericUpDown1.Value;
-            
         }
-
-        /* 
-        settings voor zoomfactor
-        grootte form
-
-         
-         
-        */
-
-
-
     }
 }
