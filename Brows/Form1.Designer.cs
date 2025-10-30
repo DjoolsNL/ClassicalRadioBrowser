@@ -38,8 +38,14 @@
             toolStripComboBox1 = new ToolStripComboBox();
             toolStripButtonSettings = new ToolStripButton();
             toolTip1 = new ToolTip(components);
+            panel1 = new Panel();
+            buttonApplyZoomFactor = new Button();
+            label1 = new Label();
+            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             toolStrip1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // webView21
@@ -110,9 +116,49 @@
             toolStripButtonSettings.Image = Properties.Resources.gear1;
             toolStripButtonSettings.ImageTransparentColor = Color.Magenta;
             toolStripButtonSettings.Name = "toolStripButtonSettings";
-            toolStripButtonSettings.Size = new Size(23, 20);
+            toolStripButtonSettings.Size = new Size(23, 22);
             toolStripButtonSettings.Text = "Settings";
             toolStripButtonSettings.Click += toolStripButtonSettings_Click;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(buttonApplyZoomFactor);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(numericUpDown1);
+            panel1.Location = new Point(4, 39);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(511, 596);
+            panel1.TabIndex = 9;
+            // 
+            // buttonApplyZoomFactor
+            // 
+            buttonApplyZoomFactor.Location = new Point(297, 30);
+            buttonApplyZoomFactor.Name = "buttonApplyZoomFactor";
+            buttonApplyZoomFactor.Size = new Size(75, 23);
+            buttonApplyZoomFactor.TabIndex = 2;
+            buttonApplyZoomFactor.Text = "Apply";
+            buttonApplyZoomFactor.UseVisualStyleBackColor = true;
+            buttonApplyZoomFactor.Click += buttonApplyZoomFactor_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(24, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(213, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Set zoomfactor browser (100 is normal)";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(243, 30);
+            numericUpDown1.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 25, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(48, 23);
+            numericUpDown1.TabIndex = 0;
+            numericUpDown1.Value = new decimal(new int[] { 100, 0, 0, 0 });
             // 
             // Form1
             // 
@@ -122,6 +168,7 @@
             ClientSize = new Size(518, 638);
             Controls.Add(toolStrip1);
             Controls.Add(webView21);
+            Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Padding = new Padding(3);
@@ -129,6 +176,9 @@
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -144,5 +194,9 @@
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButtonSettings;
         private ToolTip toolTip1;
+        private Panel panel1;
+        private NumericUpDown numericUpDown1;
+        private Button buttonApplyZoomFactor;
+        private Label label1;
     }
 }

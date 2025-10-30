@@ -51,10 +51,37 @@ namespace Brows
             toolStripTextBox1.Text = webView21.Source.ToString();
         }
 
+        // toggle between webview and settings
         private void toolStripButtonSettings_Click(object sender, EventArgs e)
         {
-            Form form2 = new Form();
-            form2.Show();
+            if (webView21.Visible == false)
+            {
+                webView21.Visible = true;
+            }
+            else
+            {
+                webView21.Visible = false;
+
+                // code voor settings
+            }
+
         }
+
+        private void buttonApplyZoomFactor_Click(object sender, EventArgs e)
+        {
+            //webView21.ZoomFactor = (double)numericUpDown1.Value;
+            
+        }
+
+        /* 
+        settings voor zoomfactor
+        grootte form
+
+         
+         
+        */
+
+
+
     }
 }
