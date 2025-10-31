@@ -39,14 +39,22 @@
             toolStripButtonSettings = new ToolStripButton();
             toolTip1 = new ToolTip(components);
             panel1 = new Panel();
+            panel2 = new Panel();
             label2 = new Label();
+            label3 = new Label();
+            buttonSetAppName = new Button();
+            textBox1 = new TextBox();
             buttonApplyZoomFactor = new Button();
-            label1 = new Label();
             numericUpDown1 = new NumericUpDown();
+            dataGridView1 = new DataGridView();
+            StationName = new DataGridViewTextBoxColumn();
+            Url = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             toolStrip1.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // webView21
@@ -107,7 +115,7 @@
             toolStripComboBoxFavorites.DropDownStyle = ComboBoxStyle.DropDownList;
             toolStripComboBoxFavorites.DropDownWidth = 250;
             toolStripComboBoxFavorites.FlatStyle = FlatStyle.System;
-            toolStripComboBoxFavorites.Items.AddRange(new object[] { "www.classicalwcrb.org/", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.vrt.be/vrtmax/livestream/audio/klara/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "www.concertzender.nl/themakanalen/", "google.com" });
+            toolStripComboBoxFavorites.Items.AddRange(new object[] { "www.classicalwcrb.org/", "www1.wdr.de/radio/wdr3/", "www.br-klassik.de/index.html", "www.mdr.de/klassik/index.html", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.vrt.be/vrtmax/livestream/audio/klara/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "www.concertzender.nl/themakanalen/", "google.com" });
             toolStripComboBoxFavorites.Name = "toolStripComboBoxFavorites";
             toolStripComboBoxFavorites.Size = new Size(121, 25);
             toolStripComboBoxFavorites.ToolTipText = "Favorites";
@@ -126,53 +134,105 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(buttonSetAppName);
+            panel1.Controls.Add(textBox1);
             panel1.Controls.Add(buttonApplyZoomFactor);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(numericUpDown1);
+            panel1.Controls.Add(dataGridView1);
             panel1.Location = new Point(4, 39);
             panel1.Name = "panel1";
             panel1.Size = new Size(511, 596);
             panel1.TabIndex = 9;
             // 
+            // panel2
+            // 
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label2);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(511, 40);
+            panel2.TabIndex = 9;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(24, 21);
+            label2.Location = new Point(16, 9);
             label2.Name = "label2";
             label2.Size = new Size(72, 21);
             label2.TabIndex = 3;
             label2.Text = "Settings";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(24, 136);
+            label3.Name = "label3";
+            label3.Size = new Size(54, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Favorites";
+            // 
+            // buttonSetAppName
+            // 
+            buttonSetAppName.Location = new Point(24, 87);
+            buttonSetAppName.Name = "buttonSetAppName";
+            buttonSetAppName.Size = new Size(96, 23);
+            buttonSetAppName.TabIndex = 6;
+            buttonSetAppName.Text = "Set app name";
+            buttonSetAppName.UseVisualStyleBackColor = true;
+            buttonSetAppName.Click += buttonSetAppName_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(135, 87);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(276, 23);
+            textBox1.TabIndex = 4;
+            // 
             // buttonApplyZoomFactor
             // 
-            buttonApplyZoomFactor.Location = new Point(350, 72);
+            buttonApplyZoomFactor.Location = new Point(24, 49);
             buttonApplyZoomFactor.Name = "buttonApplyZoomFactor";
-            buttonApplyZoomFactor.Size = new Size(52, 23);
+            buttonApplyZoomFactor.Size = new Size(287, 23);
             buttonApplyZoomFactor.TabIndex = 2;
-            buttonApplyZoomFactor.Text = "Apply";
+            buttonApplyZoomFactor.Text = "Set zoomfactor browser (fullscreen: 100, small: 50)";
             buttonApplyZoomFactor.UseVisualStyleBackColor = true;
             buttonApplyZoomFactor.Click += buttonApplyZoomFactor_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(24, 73);
-            label1.Name = "label1";
-            label1.Size = new Size(257, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Set zoomfactor browser (normal: 100, small: 50)";
-            // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(296, 72);
+            numericUpDown1.Location = new Point(363, 49);
             numericUpDown1.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 25, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(48, 23);
             numericUpDown1.TabIndex = 0;
             numericUpDown1.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { StationName, Url });
+            dataGridView1.Location = new Point(17, 179);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(466, 402);
+            dataGridView1.TabIndex = 7;
+            // 
+            // StationName
+            // 
+            StationName.HeaderText = "Station Name";
+            StationName.Name = "StationName";
+            StationName.Width = 125;
+            // 
+            // Url
+            // 
+            Url.FillWeight = 300F;
+            Url.HeaderText = "Url";
+            Url.Name = "Url";
+            Url.Width = 280;
             // 
             // Form1
             // 
@@ -186,14 +246,16 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Padding = new Padding(3);
-            Text = "Classical Music Browser";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -211,7 +273,13 @@
         private Panel panel1;
         private NumericUpDown numericUpDown1;
         private Button buttonApplyZoomFactor;
-        private Label label1;
         private Label label2;
+        private TextBox textBox1;
+        private Button buttonSetAppName;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn StationName;
+        private DataGridViewTextBoxColumn Url;
+        private Label label3;
+        private Panel panel2;
     }
 }

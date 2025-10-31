@@ -34,5 +34,17 @@ namespace Brows.Properties {
                 this["zoomfactor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Classical Radio")]
+        public string appName {
+            get {
+                return ((string)(this["appName"]));
+            }
+            set {
+                this["appName"] = value;
+            }
+        }
     }
 }

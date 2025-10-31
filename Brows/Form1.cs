@@ -1,4 +1,5 @@
 using Microsoft.VisualBasic;
+using System.Xml.Linq;
 
 namespace Brows
 {
@@ -13,6 +14,8 @@ namespace Brows
         {
             //numericUpDown1.Value = (decimal)Properties.Settings.Default.zoomfactor;
             webView21.ZoomFactor = Properties.Settings.Default.zoomfactor / 100;
+            textBox1.Text = Properties.Settings.Default.appName;
+            this.Text = Properties.Settings.Default.appName;
         }
 
         private static bool IsValidUri(string uriString)
@@ -105,5 +108,106 @@ namespace Brows
             Properties.Settings.Default.Save();
             webView21.Reload();
         }
+
+        private void buttonSetAppName_Click(object sender, EventArgs e)
+        {
+            this.Text = textBox1.Text;
+            Properties.Settings.Default.appName = textBox1.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        //private void LeesXML()
+        //{
+        //    // dir lezen en filenamen in 
+        //    // haalt de padnaam op waar het xml bestand staat
+
+        //    Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+        //    String path = Directory.GetCurrentDirectory();
+        //    Root = XElement.Load(path + "\\Catch.xml");
+
+        //    var records = Root.Elements();
+
+        //    foreach (var record in records)
+        //    {
+        //        string name = (string)record.FirstAttribute;
+
+        //        Record rec = new Record();
+        //        rec.Name = name;
+        //        Franz.Add(rec);
+
+        //        menucomboBox1.Items.Add(rec.Name);
+
+        //        ToolStripMenuItem tsmiDelete = new ToolStripMenuItem(rec.Name);
+        //        tsmiDeleteRecord.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDelete });
+        //        tsmiDelete.Click += new System.EventHandler(menuDelete_Click);
+
+        //        foreach (var entr in record.Elements())
+        //        {
+        //            string styl = (string)entr.FirstAttribute;
+        //            Veld ent = new Veld();
+        //            ent.Entry = entr.Value;
+
+        //            string substring = ent.Entry;
+        //            FormatKeyStyleDictionary(substring);
+
+        //            if (!styleDictionary.ContainsKey(rec.Name + substring))
+        //            {
+        //                styleDictionary.Add(rec.Name + substring, styl);
+        //                //EntryLengthDictionary.Add(rec.Name + substring, ent.Entry.Length);
+        //            }
+
+        //            rec.RecordList.Add(ent);
+        //        }
+        //    }
+
+        //    Record rl = new Record();
+        //    rl.RecordList = Franz.FirstOrDefault().RecordList;
+
+        //    Source = new BindingSource(rl.RecordList, null);
+
+        //    if (menucomboBox1.Items.Count != 0)
+        //    {
+        //        menucomboBox1.SelectedItem = menucomboBox1.Items[0];
+        //    }
+        //}
+
+        //private void SchrijfML()
+        //{
+        //    IEnumerable<XElement> LoopFranz()
+        //    {
+        //        foreach (var item in Franz)
+        //        {
+        //            XElement rec = new XElement("record");
+        //            XAttribute name = new XAttribute("name", item.Name);
+        //            rec.Add(name);
+
+        //            foreach (var f in item.RecordList)
+        //            {
+        //                XElement entry = new XElement("entry", f.Entry);
+
+        //                string substring = f.Entry;
+        //                FormatKeyStyleDictionary(substring);
+
+        //                string s = styleDictionary[item.Name + substring];
+        //                XAttribute style = new XAttribute("style", s);
+        //                entry.Add(style);
+        //                rec.Add(entry);
+        //            }
+        //            yield return rec;
+        //        }
+        //    }
+        //    XElement doc = new XElement("root", LoopFranz());
+
+        //    Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+        //    String path = Directory.GetCurrentDirectory();
+        //    Root = XElement.Load(path + "\\Catch.xml");
+        //    //Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+        //    //String path = Directory.GetCurrentDirectory();
+
+        //    //doc.Save(@"C:\Users\j.vannuijs\Desktop\XMLFile1.xml");
+        //    doc.Save(path + "\\Catch.xml");
+
+        //}
+
     }
 }
