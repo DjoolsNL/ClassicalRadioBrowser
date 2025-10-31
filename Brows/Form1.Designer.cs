@@ -60,7 +60,7 @@
             webView21.Size = new Size(511, 596);
             webView21.Source = new Uri("https://www.concertzender.nl/themakanalen/", UriKind.Absolute);
             webView21.TabIndex = 0;
-            webView21.ZoomFactor = 5D;
+            webView21.ZoomFactor = 0.5D;
             webView21.SourceChanged += webView21_SourceChanged;
             // 
             // toolStrip1
@@ -119,7 +119,7 @@
             toolStripButtonSettings.Image = Properties.Resources.gear1;
             toolStripButtonSettings.ImageTransparentColor = Color.Magenta;
             toolStripButtonSettings.Name = "toolStripButtonSettings";
-            toolStripButtonSettings.Size = new Size(23, 20);
+            toolStripButtonSettings.Size = new Size(23, 22);
             toolStripButtonSettings.Text = "Settings";
             toolStripButtonSettings.Click += toolStripButtonSettings_Click;
             // 
@@ -172,7 +172,7 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(48, 23);
             numericUpDown1.TabIndex = 0;
-            numericUpDown1.Value = new decimal(new int[] { 100, 0, 0, 0 });
+            numericUpDown1.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
             // Form1
             // 
@@ -186,7 +186,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Padding = new Padding(3);
-            Text = "Klassieke Muziek Browser";
+            Text = "Classical Music Browser";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             toolStrip1.ResumeLayout(false);
@@ -201,7 +201,6 @@
         #endregion
 
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
-        private GroupBox groupBox1;
         private ToolStrip toolStrip1;
         private ToolStripTextBox toolStripTextBoxUrl;
         private ToolStripButton toolStripButtonGoTo;
