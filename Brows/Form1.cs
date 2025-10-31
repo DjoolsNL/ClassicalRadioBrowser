@@ -116,6 +116,11 @@ namespace Brows
             Properties.Settings.Default.Save();
         }
 
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+            //if(this.Size
+            //    }
+        }
         //private void LeesXML()
         //{
         //    // dir lezen en filenamen in 
