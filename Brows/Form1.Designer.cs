@@ -32,17 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             toolStrip1 = new ToolStrip();
-            toolStripTextBox1 = new ToolStripTextBox();
-            toolStripButton1 = new ToolStripButton();
-            toolStripButton2 = new ToolStripButton();
-            toolStripComboBox1 = new ToolStripComboBox();
+            toolStripTextBoxUrl = new ToolStripTextBox();
+            toolStripButtonGoTo = new ToolStripButton();
+            toolStripButtonAddToFav = new ToolStripButton();
+            toolStripComboBoxFavorites = new ToolStripComboBox();
             toolStripButtonSettings = new ToolStripButton();
             toolTip1 = new ToolTip(components);
             panel1 = new Panel();
+            label2 = new Label();
             buttonApplyZoomFactor = new Button();
             label1 = new Label();
             numericUpDown1 = new NumericUpDown();
-            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             toolStrip1.SuspendLayout();
             panel1.SuspendLayout();
@@ -65,51 +65,53 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBox1, toolStripButton1, toolStripButton2, toolStripComboBox1, toolStripButtonSettings });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBoxUrl, toolStripButtonGoTo, toolStripButtonAddToFav, toolStripComboBoxFavorites, toolStripButtonSettings });
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(512, 25);
             toolStrip1.TabIndex = 8;
             toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripTextBox1
+            // toolStripTextBoxUrl
             // 
-            toolStripTextBox1.Name = "toolStripTextBox1";
-            toolStripTextBox1.Size = new Size(300, 25);
-            toolStripTextBox1.ToolTipText = "Enter a valid url";
-            toolStripTextBox1.KeyUp += toolStripTextBox1_KeyUp;
+            toolStripTextBoxUrl.Name = "toolStripTextBoxUrl";
+            toolStripTextBoxUrl.Size = new Size(300, 25);
+            toolStripTextBoxUrl.ToolTipText = "Enter a valid url";
+            toolStripTextBoxUrl.KeyUp += toolStripTextBoxUrl_KeyUp;
             // 
-            // toolStripButton1
+            // toolStripButtonGoTo
             // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = Properties.Resources.magnifier_left;
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(23, 22);
-            toolStripButton1.Text = "toolStripButton1";
-            toolStripButton1.ToolTipText = "Go to url";
-            toolStripButton1.Click += toolStripButton1_Click;
+            toolStripButtonGoTo.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButtonGoTo.Image = Properties.Resources.magnifier_left;
+            toolStripButtonGoTo.ImageTransparentColor = Color.Magenta;
+            toolStripButtonGoTo.Name = "toolStripButtonGoTo";
+            toolStripButtonGoTo.Size = new Size(23, 22);
+            toolStripButtonGoTo.Text = "toolStripButton1";
+            toolStripButtonGoTo.ToolTipText = "Go to url";
+            toolStripButtonGoTo.Click += toolStripButtonGoTo_Click;
             // 
-            // toolStripButton2
+            // toolStripButtonAddToFav
             // 
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = Properties.Resources.thumb_up;
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(23, 22);
-            toolStripButton2.Text = "toolStripButton2";
-            toolStripButton2.ToolTipText = "Add url to Favorites";
-            toolStripButton2.Click += toolStripButton2_Click;
+            toolStripButtonAddToFav.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButtonAddToFav.Image = Properties.Resources.thumb_up;
+            toolStripButtonAddToFav.ImageTransparentColor = Color.Magenta;
+            toolStripButtonAddToFav.Name = "toolStripButtonAddToFav";
+            toolStripButtonAddToFav.Size = new Size(23, 22);
+            toolStripButtonAddToFav.Text = "toolStripButton2";
+            toolStripButtonAddToFav.ToolTipText = "Add url to Favorites";
+            toolStripButtonAddToFav.Click += toolStripButtonAddToFav_Click;
             // 
-            // toolStripComboBox1
+            // toolStripComboBoxFavorites
             // 
-            toolStripComboBox1.AutoCompleteCustomSource.AddRange(new string[] { "www.classicalwcrb.org/", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.vrt.be/vrtmax/livestream/audio/klara/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "www.concertzender.nl/themakanalen/", "google.com" });
-            toolStripComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            toolStripComboBox1.Items.AddRange(new object[] { "www.classicalwcrb.org/", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.vrt.be/vrtmax/livestream/audio/klara/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "www.concertzender.nl/themakanalen/", "google.com" });
-            toolStripComboBox1.Name = "toolStripComboBox1";
-            toolStripComboBox1.Size = new Size(121, 25);
-            toolStripComboBox1.ToolTipText = "Favorites";
-            toolStripComboBox1.SelectedIndexChanged += toolStripComboBox1_SelectedIndexChanged;
+            toolStripComboBoxFavorites.AutoCompleteCustomSource.AddRange(new string[] { "www.classicalwcrb.org/", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.vrt.be/vrtmax/livestream/audio/klara/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "www.concertzender.nl/themakanalen/", "google.com" });
+            toolStripComboBoxFavorites.DropDownStyle = ComboBoxStyle.DropDownList;
+            toolStripComboBoxFavorites.DropDownWidth = 250;
+            toolStripComboBoxFavorites.FlatStyle = FlatStyle.System;
+            toolStripComboBoxFavorites.Items.AddRange(new object[] { "www.classicalwcrb.org/", "www.npoklassiek.nl/online-radio-luisteren/gedraaid", "www.vrt.be/vrtmax/livestream/audio/klaracontinuo/", "www.vrt.be/vrtmax/livestream/audio/klara/", "www.bbc.co.uk/sounds/play/live/bbc_radio_three", "www.concertzender.nl/themakanalen/", "google.com" });
+            toolStripComboBoxFavorites.Name = "toolStripComboBoxFavorites";
+            toolStripComboBoxFavorites.Size = new Size(121, 25);
+            toolStripComboBoxFavorites.ToolTipText = "Favorites";
+            toolStripComboBoxFavorites.SelectedIndexChanged += toolStripComboBoxFavorites_SelectedIndexChanged;
             // 
             // toolStripButtonSettings
             // 
@@ -117,7 +119,7 @@
             toolStripButtonSettings.Image = Properties.Resources.gear1;
             toolStripButtonSettings.ImageTransparentColor = Color.Magenta;
             toolStripButtonSettings.Name = "toolStripButtonSettings";
-            toolStripButtonSettings.Size = new Size(23, 22);
+            toolStripButtonSettings.Size = new Size(23, 20);
             toolStripButtonSettings.Text = "Settings";
             toolStripButtonSettings.Click += toolStripButtonSettings_Click;
             // 
@@ -132,6 +134,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(511, 596);
             panel1.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(24, 21);
+            label2.Name = "label2";
+            label2.Size = new Size(72, 21);
+            label2.TabIndex = 3;
+            label2.Text = "Settings";
             // 
             // buttonApplyZoomFactor
             // 
@@ -162,16 +174,6 @@
             numericUpDown1.TabIndex = 0;
             numericUpDown1.Value = new decimal(new int[] { 100, 0, 0, 0 });
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(24, 21);
-            label2.Name = "label2";
-            label2.Size = new Size(72, 21);
-            label2.TabIndex = 3;
-            label2.Text = "Settings";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -201,10 +203,10 @@
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private GroupBox groupBox1;
         private ToolStrip toolStrip1;
-        private ToolStripTextBox toolStripTextBox1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripComboBox toolStripComboBox1;
-        private ToolStripButton toolStripButton2;
+        private ToolStripTextBox toolStripTextBoxUrl;
+        private ToolStripButton toolStripButtonGoTo;
+        private ToolStripComboBox toolStripComboBoxFavorites;
+        private ToolStripButton toolStripButtonAddToFav;
         private ToolStripButton toolStripButtonSettings;
         private ToolTip toolTip1;
         private Panel panel1;
