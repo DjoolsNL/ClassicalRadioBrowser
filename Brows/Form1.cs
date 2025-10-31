@@ -57,10 +57,12 @@ namespace Brows
             if (webView21.Visible == false)
             {
                 webView21.Visible = true;
+                toolStripButtonSettings.ToolTipText = "Settings";
             }
             else
             {
                 webView21.Visible = false;
+                toolStripButtonSettings.ToolTipText = "Back to browser";
 
                 // code voor settings
             }
@@ -68,7 +70,16 @@ namespace Brows
 
         private void buttonApplyZoomFactor_Click(object sender, EventArgs e)
         {
-            //webView21.ZoomFactor = (double)numericUpDown1.Value;
+            webView21.ZoomFactor = (double)numericUpDown1.Value/100;
+            Properties.Settings.Default.zoomfactor = (double)numericUpDown1.Value;
+            Properties.Settings.Default.Save();
+            webView21.Reload();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            numericUpDown1.Value = (decimal)Properties.Settings.Default.zoomfactor;
+            webView21.ZoomFactor = Properties.Settings.Default.zoomfactor/100;
         }
     }
 }

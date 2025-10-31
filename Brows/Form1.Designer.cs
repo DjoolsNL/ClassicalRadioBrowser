@@ -42,6 +42,7 @@
             buttonApplyZoomFactor = new Button();
             label1 = new Label();
             numericUpDown1 = new NumericUpDown();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             toolStrip1.SuspendLayout();
             panel1.SuspendLayout();
@@ -59,7 +60,7 @@
             webView21.Size = new Size(511, 596);
             webView21.Source = new Uri("https://www.concertzender.nl/themakanalen/", UriKind.Absolute);
             webView21.TabIndex = 0;
-            webView21.ZoomFactor = 0.5D;
+            webView21.ZoomFactor = 5D;
             webView21.SourceChanged += webView21_SourceChanged;
             // 
             // toolStrip1
@@ -123,6 +124,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(buttonApplyZoomFactor);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(numericUpDown1);
@@ -133,9 +135,9 @@
             // 
             // buttonApplyZoomFactor
             // 
-            buttonApplyZoomFactor.Location = new Point(297, 30);
+            buttonApplyZoomFactor.Location = new Point(350, 72);
             buttonApplyZoomFactor.Name = "buttonApplyZoomFactor";
-            buttonApplyZoomFactor.Size = new Size(75, 23);
+            buttonApplyZoomFactor.Size = new Size(52, 23);
             buttonApplyZoomFactor.TabIndex = 2;
             buttonApplyZoomFactor.Text = "Apply";
             buttonApplyZoomFactor.UseVisualStyleBackColor = true;
@@ -144,21 +146,31 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 32);
+            label1.Location = new Point(24, 73);
             label1.Name = "label1";
-            label1.Size = new Size(213, 15);
+            label1.Size = new Size(257, 15);
             label1.TabIndex = 1;
-            label1.Text = "Set zoomfactor browser (100 is normal)";
+            label1.Text = "Set zoomfactor browser (normal: 100, small: 50)";
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(243, 30);
+            numericUpDown1.Location = new Point(296, 72);
             numericUpDown1.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 25, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(48, 23);
             numericUpDown1.TabIndex = 0;
             numericUpDown1.Value = new decimal(new int[] { 100, 0, 0, 0 });
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(24, 21);
+            label2.Name = "label2";
+            label2.Size = new Size(72, 21);
+            label2.TabIndex = 3;
+            label2.Text = "Settings";
             // 
             // Form1
             // 
@@ -173,6 +185,7 @@
             Name = "Form1";
             Padding = new Padding(3);
             Text = "Klassieke Muziek Browser";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
@@ -198,5 +211,6 @@
         private NumericUpDown numericUpDown1;
         private Button buttonApplyZoomFactor;
         private Label label1;
+        private Label label2;
     }
 }
