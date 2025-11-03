@@ -3,10 +3,27 @@
   <Profiles />
   <Settings>
     <Setting Name="zoomfactor" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0.5</Value>
+      <Value Profile="(Default)">0.75</Value>
     </Setting>
     <Setting Name="appName" Type="System.String" Scope="User">
       <Value Profile="(Default)">Classical Radio</Value>
+    </Setting>
+    <Setting Name="favorites" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;string&gt;www.classicalwcrb.org/&lt;/string&gt;
+  &lt;string&gt;www.br.de/radio/live/br-klassik/&lt;/string&gt;
+  &lt;string&gt;www1.wdr.de/radio/wdr3/&lt;/string&gt;
+  &lt;string&gt;www.br-klassik.de/index.html&lt;/string&gt;
+  &lt;string&gt;www.mdr.de/klassik/index.html&lt;/string&gt;
+  &lt;string&gt;www.npoklassiek.nl/online-radio-luisteren/gedraaid&lt;/string&gt;
+  &lt;string&gt;www.vrt.be/vrtmax/livestream/audio/klaracontinuo/&lt;/string&gt;
+  &lt;string&gt;www.vrt.be/vrtmax/livestream/audio/klara/&lt;/string&gt;
+  &lt;string&gt;www.bbc.co.uk/sounds/play/live/bbc_radio_three&lt;/string&gt;
+  &lt;string&gt;www.concertzender.nl/themakanalen/&lt;/string&gt;
+  &lt;string&gt;google.com&lt;/string&gt;
+  &lt;string&gt;www.bbc.com/news/us-canada&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

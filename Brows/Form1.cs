@@ -1,4 +1,5 @@
 using Microsoft.VisualBasic;
+using System.Data;
 using System.Xml.Linq;
 
 namespace Brows
@@ -8,6 +9,31 @@ namespace Brows
         public Form1()
         {
             InitializeComponent();
+            reloadFavorites();
+            //reloadFavoritessDatagridView();  
+        }
+
+        private void reloadFavorites()
+        {
+            foreach (var item in Properties.Settings.Default.favorites)
+            {
+                toolStripComboBoxFavorites.Items.Add(item);
+
+            }
+        }
+
+        private void reloadFavoritessDatagridView()
+        {
+            foreach (var item in Properties.Settings.Default.favorites)
+            {
+
+            }
+        }
+
+        private static bool IsValidUri(string uriString)
+        {
+            bool result = Uri.TryCreate(uriString, UriKind.Absolute, out Uri uriResult);
+            return result;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -16,12 +42,6 @@ namespace Brows
             webView21.ZoomFactor = Properties.Settings.Default.zoomfactor / 100;
             textBox1.Text = Properties.Settings.Default.appName;
             this.Text = Properties.Settings.Default.appName;
-        }
-
-        private static bool IsValidUri(string uriString)
-        {
-            bool result = Uri.TryCreate(uriString, UriKind.Absolute, out Uri uriResult);
-            return result;
         }
 
         // navigate to source after clicking magnifier button
@@ -54,10 +74,19 @@ namespace Brows
         {
             ToolStripComboBox? tscbFavorieten = sender as ToolStripComboBox;
             string url = $"https://{tscbFavorieten!.SelectedItem}";
-            System.Uri uri = new Uri(url);
-            webView21.Source = uri;
-            toolStripTextBoxUrl.Text = url;
-            this.Focus();
+
+            if (IsValidUri(url))
+            {
+                System.Uri uurl = new Uri(url);
+                webView21.Source = uurl;
+                toolStripTextBoxUrl.Text = url;
+                this.Focus();
+                toolStripComboBoxFavorites.Size = new System.Drawing.Size(35, 25);
+            }
+            else
+            {
+                MessageBox.Show(toolStripTextBoxUrl.Text + "is not a valid url", "Invalid");
+            }
         }
 
         /// <summary>
@@ -68,7 +97,12 @@ namespace Brows
             if (IsValidUri(toolStripTextBoxUrl.Text))
             {
                 string strippedUrl = toolStripTextBoxUrl.Text.Substring(8);
-                toolStripComboBoxFavorites.Items.Add(strippedUrl);
+                Properties.Settings.Default.favorites.Add(strippedUrl);
+                Properties.Settings.Default.Save();
+
+                toolStripComboBoxFavorites.Items.Clear();
+
+                reloadFavorites();
             }
             else
             {
@@ -98,6 +132,42 @@ namespace Brows
             {
                 webView21.Visible = false;
                 toolStripButtonSettings.ToolTipText = "Back to browser";
+                panel3.Controls.Clear();
+                populatePanel3();
+            }
+        }
+
+        private void textBoxFavorites_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                using (TextBox? tb = sender as TextBox)
+                {
+                    Properties.Settings.Default.favorites[(int)tb!.Tag!] = tb.Text;
+                    Properties.Settings.Default.Save();
+
+                    toolStripComboBoxFavorites.Items.Clear();
+                    reloadFavorites();
+                    panel3.Controls.Clear();
+                    populatePanel3();
+                }
+            }
+        }
+
+        private void populatePanel3()
+        {
+            int y = 5; int n = 0;
+            foreach (var item in Properties.Settings.Default.favorites)
+            {
+                TextBox t = new TextBox();
+                t.Anchor = Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                t.Tag = n;
+                t.KeyUp += textBoxFavorites_KeyUp!;
+                t.AppendText(item);
+                t.Width = 440;
+                t.Location = new Point(5, y);
+                panel3.Controls.Add(t);
+                y = y + 26; n++;
             }
         }
 
@@ -121,6 +191,28 @@ namespace Brows
             //if(this.Size
             //    }
         }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            Properties.Settings.Default.favorites.Add(dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
+            Properties.Settings.Default.Save();
+
+            toolStripComboBoxFavorites.Items.Clear();
+
+            reloadFavorites();
+        }
+
+        private void toolStripComboBoxFavorites_Click(object sender, EventArgs e)
+        {
+            toolStripComboBoxFavorites.Size = new System.Drawing.Size(121, 25);
+        }
+
+        private void toolStripComboBoxFavorites_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripComboBoxFavorites.Size = new System.Drawing.Size(121, 25);
+        }
+
         //private void LeesXML()
         //{
         //    // dir lezen en filenamen in 

@@ -25,7 +25,7 @@ namespace Brows.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.75")]
         public double zoomfactor {
             get {
                 return ((double)(this["zoomfactor"]));
@@ -44,6 +44,32 @@ namespace Brows.Properties {
             }
             set {
                 this["appName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"">
+  <string>www.classicalwcrb.org/</string>
+  <string>www.br.de/radio/live/br-klassik/</string>
+  <string>www1.wdr.de/radio/wdr3/</string>
+  <string>www.br-klassik.de/index.html</string>
+  <string>www.mdr.de/klassik/index.html</string>
+  <string>www.npoklassiek.nl/online-radio-luisteren/gedraaid</string>
+  <string>www.vrt.be/vrtmax/livestream/audio/klaracontinuo/</string>
+  <string>www.vrt.be/vrtmax/livestream/audio/klara/</string>
+  <string>www.bbc.co.uk/sounds/play/live/bbc_radio_three</string>
+  <string>www.concertzender.nl/themakanalen/</string>
+  <string>google.com</string>
+  <string>www.bbc.com/news/us-canada</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection favorites {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["favorites"]));
+            }
+            set {
+                this["favorites"] = value;
             }
         }
     }
