@@ -180,8 +180,15 @@ namespace Brows
 
                 // toolStripTextBoxUrl : toolStripComboBoxFavorites = 15 : 6 
                 toolStripComboBoxFavorites.Size = new Size(this.Size.Width / 100 * 30, 25);
+                
             }
 
+        }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+            this.Refresh();
+            //toolStrip1.Refresh();
         }
 
 

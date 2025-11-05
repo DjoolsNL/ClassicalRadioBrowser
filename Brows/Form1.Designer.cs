@@ -63,7 +63,7 @@
             webView21.DefaultBackgroundColor = Color.White;
             webView21.Location = new Point(4, 58);
             webView21.Name = "webView21";
-            webView21.Size = new Size(513, 609);
+            webView21.Size = new Size(528, 609);
             webView21.Source = new Uri("https://www.concertzender.nl/themakanalen/", UriKind.Absolute);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 0.5D;
@@ -72,17 +72,18 @@
             // toolStrip1
             // 
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBoxUrl, toolStripButtonGoTo, toolStripButtonAddToFav, toolStripComboBoxFavorites, toolStripButtonSettings });
+            toolStrip1.LayoutStyle = ToolStripLayoutStyle.Flow;
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.RenderMode = ToolStripRenderMode.Professional;
-            toolStrip1.Size = new Size(514, 25);
+            toolStrip1.Size = new Size(529, 23);
             toolStrip1.TabIndex = 8;
             toolStrip1.Text = "toolStrip1";
             // 
             // toolStripTextBoxUrl
             // 
             toolStripTextBoxUrl.Name = "toolStripTextBoxUrl";
-            toolStripTextBoxUrl.Size = new Size(300, 25);
+            toolStripTextBoxUrl.Size = new Size(300, 23);
             toolStripTextBoxUrl.ToolTipText = "Enter a valid url";
             toolStripTextBoxUrl.KeyUp += ToolStripTextBoxUrl_KeyUp;
             // 
@@ -92,7 +93,7 @@
             toolStripButtonGoTo.Image = Properties.Resources.magnifier_left;
             toolStripButtonGoTo.ImageTransparentColor = Color.Magenta;
             toolStripButtonGoTo.Name = "toolStripButtonGoTo";
-            toolStripButtonGoTo.Size = new Size(23, 22);
+            toolStripButtonGoTo.Size = new Size(23, 20);
             toolStripButtonGoTo.Text = "toolStripButton1";
             toolStripButtonGoTo.ToolTipText = "Go to url";
             toolStripButtonGoTo.Click += ToolStripButtonGoTo_Click;
@@ -103,7 +104,7 @@
             toolStripButtonAddToFav.Image = Properties.Resources.star;
             toolStripButtonAddToFav.ImageTransparentColor = Color.Magenta;
             toolStripButtonAddToFav.Name = "toolStripButtonAddToFav";
-            toolStripButtonAddToFav.Size = new Size(23, 22);
+            toolStripButtonAddToFav.Size = new Size(23, 20);
             toolStripButtonAddToFav.Text = "toolStripButton2";
             toolStripButtonAddToFav.ToolTipText = "Add url to Favorites";
             toolStripButtonAddToFav.Click += ToolStripButtonAddToFav_Click;
@@ -114,7 +115,7 @@
             toolStripComboBoxFavorites.DropDownWidth = 300;
             toolStripComboBoxFavorites.FlatStyle = FlatStyle.System;
             toolStripComboBoxFavorites.Name = "toolStripComboBoxFavorites";
-            toolStripComboBoxFavorites.Size = new Size(120, 25);
+            toolStripComboBoxFavorites.Size = new Size(120, 23);
             toolStripComboBoxFavorites.ToolTipText = "Favorites";
             toolStripComboBoxFavorites.SelectedIndexChanged += ToolStripComboBoxFavorites_SelectedIndexChanged;
             // 
@@ -124,13 +125,14 @@
             toolStripButtonSettings.Image = Properties.Resources.gear1;
             toolStripButtonSettings.ImageTransparentColor = Color.Magenta;
             toolStripButtonSettings.Name = "toolStripButtonSettings";
-            toolStripButtonSettings.Size = new Size(23, 22);
+            toolStripButtonSettings.Size = new Size(23, 20);
             toolStripButtonSettings.Text = "Settings";
             toolStripButtonSettings.Click += ToolStripButtonSettings_Click;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = SystemColors.ControlLight;
             panel1.Controls.Add(panelOverviewFavorites);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
@@ -141,19 +143,18 @@
             panel1.Controls.Add(numericUpDown1);
             panel1.Location = new Point(4, 58);
             panel1.Name = "panel1";
-            panel1.Size = new Size(513, 609);
+            panel1.Size = new Size(528, 609);
             panel1.TabIndex = 9;
             // 
             // panelOverviewFavorites
             // 
             panelOverviewFavorites.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelOverviewFavorites.AutoScroll = true;
-            panelOverviewFavorites.BorderStyle = BorderStyle.FixedSingle;
             panelOverviewFavorites.Location = new Point(17, 170);
             panelOverviewFavorites.Margin = new Padding(5);
             panelOverviewFavorites.Name = "panelOverviewFavorites";
             panelOverviewFavorites.Padding = new Padding(3);
-            panelOverviewFavorites.Size = new Size(478, 412);
+            panelOverviewFavorites.Size = new Size(493, 412);
             panelOverviewFavorites.TabIndex = 11;
             // 
             // label1
@@ -172,7 +173,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(513, 40);
+            panel2.Size = new Size(528, 40);
             panel2.TabIndex = 9;
             // 
             // label2
@@ -188,11 +189,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 136);
+            label3.Location = new Point(24, 147);
             label3.Name = "label3";
-            label3.Size = new Size(403, 15);
+            label3.Size = new Size(409, 15);
             label3.TabIndex = 8;
-            label3.Text = "Favorites - Add and delete entries - Pressing the enter key will save our edit.";
+            label3.Text = "Favorites - Add and delete entries - Pressing the enter key will save your edit.";
             // 
             // buttonSetAppName
             // 
@@ -200,7 +201,7 @@
             buttonSetAppName.Name = "buttonSetAppName";
             buttonSetAppName.Size = new Size(105, 23);
             buttonSetAppName.TabIndex = 6;
-            buttonSetAppName.Text = "Name";
+            buttonSetAppName.Text = "Set name";
             buttonSetAppName.UseVisualStyleBackColor = true;
             buttonSetAppName.Click += ButtonSetAppName_Click;
             // 
@@ -237,13 +238,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(520, 670);
+            ClientSize = new Size(535, 670);
             Controls.Add(toolStrip1);
             Controls.Add(webView21);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Padding = new Padding(3);
+            ResizeEnd += Form1_ResizeEnd;
             Resize += Form1_Resize;
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             toolStrip1.ResumeLayout(false);
