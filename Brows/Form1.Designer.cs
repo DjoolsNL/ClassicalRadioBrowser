@@ -39,7 +39,7 @@
             toolStripButtonSettings = new ToolStripButton();
             toolTip1 = new ToolTip(components);
             panel1 = new Panel();
-            panel3 = new Panel();
+            panelOverviewFavorites = new Panel();
             label1 = new Label();
             panel2 = new Panel();
             label2 = new Label();
@@ -67,13 +67,14 @@
             webView21.Source = new Uri("https://www.concertzender.nl/themakanalen/", UriKind.Absolute);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 0.5D;
-            webView21.SourceChanged += webView21_SourceChanged;
+            webView21.SourceChanged += WebView21_SourceChanged;
             // 
             // toolStrip1
             // 
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBoxUrl, toolStripButtonGoTo, toolStripButtonAddToFav, toolStripComboBoxFavorites, toolStripButtonSettings });
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
+            toolStrip1.RenderMode = ToolStripRenderMode.Professional;
             toolStrip1.Size = new Size(514, 25);
             toolStrip1.TabIndex = 8;
             toolStrip1.Text = "toolStrip1";
@@ -83,7 +84,7 @@
             toolStripTextBoxUrl.Name = "toolStripTextBoxUrl";
             toolStripTextBoxUrl.Size = new Size(300, 25);
             toolStripTextBoxUrl.ToolTipText = "Enter a valid url";
-            toolStripTextBoxUrl.KeyUp += toolStripTextBoxUrl_KeyUp;
+            toolStripTextBoxUrl.KeyUp += ToolStripTextBoxUrl_KeyUp;
             // 
             // toolStripButtonGoTo
             // 
@@ -94,7 +95,7 @@
             toolStripButtonGoTo.Size = new Size(23, 22);
             toolStripButtonGoTo.Text = "toolStripButton1";
             toolStripButtonGoTo.ToolTipText = "Go to url";
-            toolStripButtonGoTo.Click += toolStripButtonGoTo_Click;
+            toolStripButtonGoTo.Click += ToolStripButtonGoTo_Click;
             // 
             // toolStripButtonAddToFav
             // 
@@ -105,19 +106,17 @@
             toolStripButtonAddToFav.Size = new Size(23, 22);
             toolStripButtonAddToFav.Text = "toolStripButton2";
             toolStripButtonAddToFav.ToolTipText = "Add url to Favorites";
-            toolStripButtonAddToFav.Click += toolStripButtonAddToFav_Click;
+            toolStripButtonAddToFav.Click += ToolStripButtonAddToFav_Click;
             // 
             // toolStripComboBoxFavorites
             // 
             toolStripComboBoxFavorites.DropDownStyle = ComboBoxStyle.DropDownList;
-            toolStripComboBoxFavorites.DropDownWidth = 250;
+            toolStripComboBoxFavorites.DropDownWidth = 300;
             toolStripComboBoxFavorites.FlatStyle = FlatStyle.System;
             toolStripComboBoxFavorites.Name = "toolStripComboBoxFavorites";
-            toolStripComboBoxFavorites.Size = new Size(121, 25);
+            toolStripComboBoxFavorites.Size = new Size(120, 25);
             toolStripComboBoxFavorites.ToolTipText = "Favorites";
-            toolStripComboBoxFavorites.SelectedIndexChanged += toolStripComboBoxFavorites_SelectedIndexChanged;
-            toolStripComboBoxFavorites.Click += toolStripComboBoxFavorites_Click;
-            toolStripComboBoxFavorites.MouseEnter += toolStripComboBoxFavorites_MouseEnter;
+            toolStripComboBoxFavorites.SelectedIndexChanged += ToolStripComboBoxFavorites_SelectedIndexChanged;
             // 
             // toolStripButtonSettings
             // 
@@ -127,12 +126,12 @@
             toolStripButtonSettings.Name = "toolStripButtonSettings";
             toolStripButtonSettings.Size = new Size(23, 22);
             toolStripButtonSettings.Text = "Settings";
-            toolStripButtonSettings.Click += toolStripButtonSettings_Click;
+            toolStripButtonSettings.Click += ToolStripButtonSettings_Click;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(panelOverviewFavorites);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label3);
@@ -145,17 +144,17 @@
             panel1.Size = new Size(513, 609);
             panel1.TabIndex = 9;
             // 
-            // panel3
+            // panelOverviewFavorites
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.AutoScroll = true;
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Location = new Point(17, 170);
-            panel3.Margin = new Padding(5);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(3);
-            panel3.Size = new Size(478, 412);
-            panel3.TabIndex = 11;
+            panelOverviewFavorites.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelOverviewFavorites.AutoScroll = true;
+            panelOverviewFavorites.BorderStyle = BorderStyle.FixedSingle;
+            panelOverviewFavorites.Location = new Point(17, 170);
+            panelOverviewFavorites.Margin = new Padding(5);
+            panelOverviewFavorites.Name = "panelOverviewFavorites";
+            panelOverviewFavorites.Padding = new Padding(3);
+            panelOverviewFavorites.Size = new Size(478, 412);
+            panelOverviewFavorites.TabIndex = 11;
             // 
             // label1
             // 
@@ -203,7 +202,7 @@
             buttonSetAppName.TabIndex = 6;
             buttonSetAppName.Text = "Name";
             buttonSetAppName.UseVisualStyleBackColor = true;
-            buttonSetAppName.Click += buttonSetAppName_Click;
+            buttonSetAppName.Click += ButtonSetAppName_Click;
             // 
             // textBox1
             // 
@@ -220,7 +219,7 @@
             buttonApplyZoomFactor.TabIndex = 2;
             buttonApplyZoomFactor.Text = "Set zoomfactor";
             buttonApplyZoomFactor.UseVisualStyleBackColor = true;
-            buttonApplyZoomFactor.Click += buttonApplyZoomFactor_Click;
+            buttonApplyZoomFactor.Click += ButtonApplyZoomFactor_Click;
             // 
             // numericUpDown1
             // 
@@ -236,6 +235,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.SeaShell;
             ClientSize = new Size(520, 670);
             Controls.Add(toolStrip1);
@@ -244,8 +244,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Padding = new Padding(3);
-            Load += Form1_Load;
-            ResizeEnd += Form1_ResizeEnd;
+            Resize += Form1_Resize;
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
@@ -277,6 +276,6 @@
         private Label label3;
         private Panel panel2;
         private Label label1;
-        private Panel panel3;
+        private Panel panelOverviewFavorites;
     }
 }
