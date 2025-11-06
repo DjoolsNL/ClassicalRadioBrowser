@@ -34,27 +34,29 @@
             toolStrip1 = new ToolStrip();
             toolStripTextBoxUrl = new ToolStripTextBox();
             toolStripButtonGoTo = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
             toolStripButtonAddToFav = new ToolStripButton();
             toolStripComboBoxFavorites = new ToolStripComboBox();
+            toolStripSeparator1 = new ToolStripSeparator();
             toolStripButtonSettings = new ToolStripButton();
             toolTip1 = new ToolTip(components);
+            buttonSetAppName = new Button();
+            buttonApplyZoomFactor = new Button();
+            numericUpDown1 = new NumericUpDown();
             panel1 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             buttonSetStartUp = new Button();
             textBoxSetStartUp = new TextBox();
-            panelOverviewFavorites = new Panel();
             label1 = new Label();
             panel2 = new Panel();
             label2 = new Label();
             label3 = new Label();
-            buttonSetAppName = new Button();
             textBoxAppName = new TextBox();
-            buttonApplyZoomFactor = new Button();
-            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // webView21
@@ -63,9 +65,9 @@
             webView21.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             webView21.CreationProperties = null;
             webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(4, 58);
+            webView21.Location = new Point(4, 44);
             webView21.Name = "webView21";
-            webView21.Size = new Size(528, 609);
+            webView21.Size = new Size(528, 623);
             webView21.Source = new Uri("https://www.concertzender.nl/themakanalen/", UriKind.Absolute);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 0.5D;
@@ -73,7 +75,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBoxUrl, toolStripButtonGoTo, toolStripButtonAddToFav, toolStripComboBoxFavorites, toolStripButtonSettings });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBoxUrl, toolStripButtonGoTo, toolStripSeparator2, toolStripButtonAddToFav, toolStripComboBoxFavorites, toolStripSeparator1, toolStripButtonSettings });
             toolStrip1.LayoutStyle = ToolStripLayoutStyle.Flow;
             toolStrip1.Location = new Point(3, 3);
             toolStrip1.Name = "toolStrip1";
@@ -100,6 +102,11 @@
             toolStripButtonGoTo.ToolTipText = "Go to url";
             toolStripButtonGoTo.Click += ToolStripButtonGoTo_Click;
             // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 23);
+            // 
             // toolStripButtonAddToFav
             // 
             toolStripButtonAddToFav.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -121,6 +128,11 @@
             toolStripComboBoxFavorites.ToolTipText = "Favorites";
             toolStripComboBoxFavorites.SelectedIndexChanged += ToolStripComboBoxFavorites_SelectedIndexChanged;
             // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 23);
+            // 
             // toolStripButtonSettings
             // 
             toolStripButtonSettings.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -131,13 +143,46 @@
             toolStripButtonSettings.Text = "Settings";
             toolStripButtonSettings.Click += ToolStripButtonSettings_Click;
             // 
+            // buttonSetAppName
+            // 
+            buttonSetAppName.Location = new Point(24, 80);
+            buttonSetAppName.Name = "buttonSetAppName";
+            buttonSetAppName.Size = new Size(119, 23);
+            buttonSetAppName.TabIndex = 6;
+            buttonSetAppName.Text = "Set name";
+            toolTip1.SetToolTip(buttonSetAppName, "Sets the name of your App");
+            buttonSetAppName.UseVisualStyleBackColor = true;
+            buttonSetAppName.Click += ButtonSetAppName_Click;
+            // 
+            // buttonApplyZoomFactor
+            // 
+            buttonApplyZoomFactor.Location = new Point(24, 49);
+            buttonApplyZoomFactor.Name = "buttonApplyZoomFactor";
+            buttonApplyZoomFactor.Size = new Size(119, 23);
+            buttonApplyZoomFactor.TabIndex = 2;
+            buttonApplyZoomFactor.Text = "Set zoomfactor";
+            toolTip1.SetToolTip(buttonApplyZoomFactor, "Sets how large the browser displays its contents");
+            buttonApplyZoomFactor.UseVisualStyleBackColor = true;
+            buttonApplyZoomFactor.Click += ButtonApplyZoomFactor_Click;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(160, 51);
+            numericUpDown1.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 25, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(48, 23);
+            numericUpDown1.TabIndex = 0;
+            toolTip1.SetToolTip(numericUpDown1, "range: 500 - 25");
+            numericUpDown1.Value = new decimal(new int[] { 75, 0, 0, 0 });
+            // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ControlLight;
+            panel1.Controls.Add(flowLayoutPanel1);
             panel1.Controls.Add(buttonSetStartUp);
             panel1.Controls.Add(textBoxSetStartUp);
-            panel1.Controls.Add(panelOverviewFavorites);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label3);
@@ -145,10 +190,21 @@
             panel1.Controls.Add(textBoxAppName);
             panel1.Controls.Add(buttonApplyZoomFactor);
             panel1.Controls.Add(numericUpDown1);
-            panel1.Location = new Point(4, 58);
+            panel1.Location = new Point(4, 44);
             panel1.Name = "panel1";
-            panel1.Size = new Size(528, 609);
+            panel1.Size = new Size(528, 623);
             panel1.TabIndex = 9;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(17, 185);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(493, 424);
+            flowLayoutPanel1.TabIndex = 14;
+            flowLayoutPanel1.WrapContents = false;
             // 
             // buttonSetStartUp
             // 
@@ -169,25 +225,14 @@
             textBoxSetStartUp.Size = new Size(273, 23);
             textBoxSetStartUp.TabIndex = 12;
             // 
-            // panelOverviewFavorites
-            // 
-            panelOverviewFavorites.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelOverviewFavorites.AutoScroll = true;
-            panelOverviewFavorites.Location = new Point(17, 175);
-            panelOverviewFavorites.Margin = new Padding(5);
-            panelOverviewFavorites.Name = "panelOverviewFavorites";
-            panelOverviewFavorites.Padding = new Padding(3);
-            panelOverviewFavorites.Size = new Size(493, 412);
-            panelOverviewFavorites.TabIndex = 11;
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(214, 53);
             label1.Name = "label1";
-            label1.Size = new Size(142, 15);
+            label1.Size = new Size(181, 15);
             label1.TabIndex = 10;
-            label1.Text = "(fullscreen: 100, small: 50)";
+            label1.Text = "large: 200, normal: 100, small: 50)";
             // 
             // panel2
             // 
@@ -212,21 +257,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 156);
+            label3.Location = new Point(24, 163);
             label3.Name = "label3";
             label3.Size = new Size(409, 15);
             label3.TabIndex = 8;
             label3.Text = "Favorites - Add and delete entries - Pressing the enter key will save your edit.";
-            // 
-            // buttonSetAppName
-            // 
-            buttonSetAppName.Location = new Point(24, 80);
-            buttonSetAppName.Name = "buttonSetAppName";
-            buttonSetAppName.Size = new Size(119, 23);
-            buttonSetAppName.TabIndex = 6;
-            buttonSetAppName.Text = "Set name";
-            buttonSetAppName.UseVisualStyleBackColor = true;
-            buttonSetAppName.Click += ButtonSetAppName_Click;
             // 
             // textBoxAppName
             // 
@@ -234,26 +269,6 @@
             textBoxAppName.Name = "textBoxAppName";
             textBoxAppName.Size = new Size(273, 23);
             textBoxAppName.TabIndex = 4;
-            // 
-            // buttonApplyZoomFactor
-            // 
-            buttonApplyZoomFactor.Location = new Point(24, 49);
-            buttonApplyZoomFactor.Name = "buttonApplyZoomFactor";
-            buttonApplyZoomFactor.Size = new Size(119, 23);
-            buttonApplyZoomFactor.TabIndex = 2;
-            buttonApplyZoomFactor.Text = "Set zoomfactor";
-            buttonApplyZoomFactor.UseVisualStyleBackColor = true;
-            buttonApplyZoomFactor.Click += ButtonApplyZoomFactor_Click;
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(160, 51);
-            numericUpDown1.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
-            numericUpDown1.Minimum = new decimal(new int[] { 25, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(48, 23);
-            numericUpDown1.TabIndex = 0;
-            numericUpDown1.Value = new decimal(new int[] { 75, 0, 0, 0 });
             // 
             // Form1
             // 
@@ -263,8 +278,8 @@
             BackColor = Color.SeaShell;
             ClientSize = new Size(535, 670);
             Controls.Add(toolStrip1);
-            Controls.Add(panel1);
             Controls.Add(webView21);
+            Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Padding = new Padding(3);
@@ -273,11 +288,11 @@
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -301,8 +316,10 @@
         private Label label3;
         private Panel panel2;
         private Label label1;
-        private Panel panelOverviewFavorites;
         private Button buttonSetStartUp;
         private TextBox textBoxSetStartUp;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator2;
     }
 }

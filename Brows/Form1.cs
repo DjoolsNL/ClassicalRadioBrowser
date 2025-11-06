@@ -111,15 +111,15 @@ namespace Brows
             if (webView21.Visible == false)
             {
                 webView21.Visible = true;
-                panelOverviewFavorites.Visible = false;
+                flowLayoutPanel1.Visible = false;
                 toolStripButtonSettings.ToolTipText = "Settings";
             }
             else
             {
                 webView21.Visible = false;
-                panelOverviewFavorites.Visible = true;
+                flowLayoutPanel1.Visible = true;
                 toolStripButtonSettings.ToolTipText = "Back to browser";
-                panelOverviewFavorites.Controls.Clear();
+                flowLayoutPanel1.Controls.Clear();
                 PopulatePanelOverviewFavorites();
             }
         }
@@ -135,7 +135,7 @@ namespace Brows
 
                     toolStripComboBoxFavorites.Items.Clear();
                     LoadFavorites();
-                    panelOverviewFavorites.Controls.Clear();
+                    flowLayoutPanel1.Controls.Clear();
                     PopulatePanelOverviewFavorites();
                 }
             }
@@ -147,13 +147,13 @@ namespace Brows
             foreach (var item in Properties.Settings.Default.favorites)
             {
                 TextBox t = new TextBox();
-                t.Anchor = Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                //t.Anchor = Anchor = AnchorStyles.Left | AnchorStyles.Right;
                 t.Tag = n;
                 t.KeyUp += TextBoxFavorites_KeyUp!;
                 t.AppendText("  " + item);
                 t.Width = 440;
-                t.Location = new Point(5, y);
-                panelOverviewFavorites.Controls.Add(t);
+                //t.Location = new Point(5, y);
+                flowLayoutPanel1.Controls.Add(t);
                 y = y + 26; n++;
             }
         }
