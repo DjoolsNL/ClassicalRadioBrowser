@@ -39,13 +39,15 @@
             toolStripButtonSettings = new ToolStripButton();
             toolTip1 = new ToolTip(components);
             panel1 = new Panel();
+            buttonSetStartUp = new Button();
+            textBoxSetStartUp = new TextBox();
             panelOverviewFavorites = new Panel();
             label1 = new Label();
             panel2 = new Panel();
             label2 = new Label();
             label3 = new Label();
             buttonSetAppName = new Button();
-            textBox1 = new TextBox();
+            textBoxAppName = new TextBox();
             buttonApplyZoomFactor = new Button();
             numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
@@ -133,12 +135,14 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ControlLight;
+            panel1.Controls.Add(buttonSetStartUp);
+            panel1.Controls.Add(textBoxSetStartUp);
             panel1.Controls.Add(panelOverviewFavorites);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(buttonSetAppName);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(textBoxAppName);
             panel1.Controls.Add(buttonApplyZoomFactor);
             panel1.Controls.Add(numericUpDown1);
             panel1.Location = new Point(4, 58);
@@ -146,11 +150,30 @@
             panel1.Size = new Size(528, 609);
             panel1.TabIndex = 9;
             // 
+            // buttonSetStartUp
+            // 
+            buttonSetStartUp.Enabled = false;
+            buttonSetStartUp.Location = new Point(24, 109);
+            buttonSetStartUp.Name = "buttonSetStartUp";
+            buttonSetStartUp.Size = new Size(119, 23);
+            buttonSetStartUp.TabIndex = 13;
+            buttonSetStartUp.Text = "Set startup channel";
+            buttonSetStartUp.UseVisualStyleBackColor = true;
+            buttonSetStartUp.Click += buttonSetStartUp_Click;
+            // 
+            // textBoxSetStartUp
+            // 
+            textBoxSetStartUp.Enabled = false;
+            textBoxSetStartUp.Location = new Point(160, 109);
+            textBoxSetStartUp.Name = "textBoxSetStartUp";
+            textBoxSetStartUp.Size = new Size(273, 23);
+            textBoxSetStartUp.TabIndex = 12;
+            // 
             // panelOverviewFavorites
             // 
             panelOverviewFavorites.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelOverviewFavorites.AutoScroll = true;
-            panelOverviewFavorites.Location = new Point(17, 170);
+            panelOverviewFavorites.Location = new Point(17, 175);
             panelOverviewFavorites.Margin = new Padding(5);
             panelOverviewFavorites.Name = "panelOverviewFavorites";
             panelOverviewFavorites.Padding = new Padding(3);
@@ -160,7 +183,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(189, 53);
+            label1.Location = new Point(214, 53);
             label1.Name = "label1";
             label1.Size = new Size(142, 15);
             label1.TabIndex = 10;
@@ -189,7 +212,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 147);
+            label3.Location = new Point(24, 156);
             label3.Name = "label3";
             label3.Size = new Size(409, 15);
             label3.TabIndex = 8;
@@ -197,26 +220,26 @@
             // 
             // buttonSetAppName
             // 
-            buttonSetAppName.Location = new Point(24, 87);
+            buttonSetAppName.Location = new Point(24, 80);
             buttonSetAppName.Name = "buttonSetAppName";
-            buttonSetAppName.Size = new Size(105, 23);
+            buttonSetAppName.Size = new Size(119, 23);
             buttonSetAppName.TabIndex = 6;
             buttonSetAppName.Text = "Set name";
             buttonSetAppName.UseVisualStyleBackColor = true;
             buttonSetAppName.Click += ButtonSetAppName_Click;
             // 
-            // textBox1
+            // textBoxAppName
             // 
-            textBox1.Location = new Point(135, 87);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(276, 23);
-            textBox1.TabIndex = 4;
+            textBoxAppName.Location = new Point(160, 80);
+            textBoxAppName.Name = "textBoxAppName";
+            textBoxAppName.Size = new Size(273, 23);
+            textBoxAppName.TabIndex = 4;
             // 
             // buttonApplyZoomFactor
             // 
             buttonApplyZoomFactor.Location = new Point(24, 49);
             buttonApplyZoomFactor.Name = "buttonApplyZoomFactor";
-            buttonApplyZoomFactor.Size = new Size(105, 23);
+            buttonApplyZoomFactor.Size = new Size(119, 23);
             buttonApplyZoomFactor.TabIndex = 2;
             buttonApplyZoomFactor.Text = "Set zoomfactor";
             buttonApplyZoomFactor.UseVisualStyleBackColor = true;
@@ -224,7 +247,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(135, 51);
+            numericUpDown1.Location = new Point(160, 51);
             numericUpDown1.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 25, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
@@ -240,8 +263,8 @@
             BackColor = Color.SeaShell;
             ClientSize = new Size(535, 670);
             Controls.Add(toolStrip1);
-            Controls.Add(webView21);
             Controls.Add(panel1);
+            Controls.Add(webView21);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Padding = new Padding(3);
@@ -273,11 +296,13 @@
         private NumericUpDown numericUpDown1;
         private Button buttonApplyZoomFactor;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox textBoxAppName;
         private Button buttonSetAppName;
         private Label label3;
         private Panel panel2;
         private Label label1;
         private Panel panelOverviewFavorites;
+        private Button buttonSetStartUp;
+        private TextBox textBoxSetStartUp;
     }
 }

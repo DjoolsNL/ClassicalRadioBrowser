@@ -10,8 +10,9 @@ namespace Brows
         {
             InitializeComponent();
             LoadFavorites();
+
             webView21.ZoomFactor = Properties.Settings.Default.zoomfactor / 100;
-            textBox1.Text = Properties.Settings.Default.appName;
+            textBoxAppName.Text = Properties.Settings.Default.appName;
             this.Text = Properties.Settings.Default.appName;
         }
 
@@ -48,9 +49,10 @@ namespace Brows
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Object o = new Object();
+                Object ob = new Object();
                 EventArgs ee = new EventArgs();
-                ToolStripButtonGoTo_Click(o, ee);
+                // we reuse an existing method 
+                ToolStripButtonGoTo_Click(ob, ee);
             }
         }
 
@@ -65,7 +67,6 @@ namespace Brows
                 System.Uri uurl = new Uri(url);
                 webView21.Source = uurl;
                 toolStripTextBoxUrl.Text = url;
-                //toolStripComboBoxFavorites.Size = new System.Drawing.Size(35, 25);
             }
             else
             {
@@ -167,8 +168,8 @@ namespace Brows
 
         private void ButtonSetAppName_Click(object sender, EventArgs e)
         {
-            this.Text = textBox1.Text;
-            Properties.Settings.Default.appName = textBox1.Text;
+            this.Text = textBoxAppName.Text;
+            Properties.Settings.Default.appName = textBoxAppName.Text;
             Properties.Settings.Default.Save();
         }
 
@@ -177,18 +178,34 @@ namespace Brows
             if (this.Size.Width > 536)
             {
                 toolStripTextBoxUrl.Size = new Size(this.Size.Width / 100 * 55, 25);
-
-                // toolStripTextBoxUrl : toolStripComboBoxFavorites = 15 : 6 
                 toolStripComboBoxFavorites.Size = new Size(this.Size.Width / 100 * 30, 25);
-                
             }
-
         }
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             this.Refresh();
-            //toolStrip1.Refresh();
+        }
+
+        private void buttonSetStartUp_Click(object sender, EventArgs e)
+        {
+            //string startUpUrl = textBoxSetStartUp.Text;
+            //if (!startUpUrl.StartsWith("https://"))
+            //{
+            //    startUpUrl = "https://" + startUpUrl;
+            //}
+            
+            //if (IsValidUri(startUpUrl))
+            //{
+            //    System.Uri url = new Uri(startUpUrl);
+            //    webView21.Source = url;
+            //    Properties.Settings.Default.startUpUrl = startUpUrl;
+            //    Properties.Settings.Default.Save();
+            //}
+            //else
+            //{
+            //    MessageBox.Show(toolStripTextBoxUrl.Text + "is not a valid url (it should start with https://)", "Invalid");
+            //}
         }
 
 
