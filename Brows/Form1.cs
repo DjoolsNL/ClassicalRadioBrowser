@@ -10,12 +10,20 @@ namespace Brows
         {
             InitializeComponent();
             LoadFavorites();
+            LoadFavoritesforSettingStartupUrl();
+
+            // load startup website
+            string s = "https://" + Properties.Settings.Default.favorites[Properties.Settings.Default.startUpIndex];
+            webView21.Source = new Uri(s, UriKind.Absolute);
 
             webView21.ZoomFactor = Properties.Settings.Default.zoomfactor / 100;
             textBoxAppName.Text = Properties.Settings.Default.appName;
             this.Text = Properties.Settings.Default.appName;
         }
 
+        /// <summary>
+        /// Loads favorites into toolStripCombobox from Properties.Settings.Default.favorites
+        /// </summary>
         private void LoadFavorites()
         {
             foreach (var item in Properties.Settings.Default.favorites)
@@ -24,13 +32,38 @@ namespace Brows
             }
         }
 
+        private void LoadFavoritesforSettingStartupUrl()
+        {
+            foreach (var item in Properties.Settings.Default.favorites)
+            {
+                comboBox1.Items.Add(item!);
+            }
+        }
+
         private static bool IsValidUri(string uriString)
         {
             bool result = Uri.TryCreate(uriString, UriKind.Absolute, out _);
             return result;
         }
+        //
+        // Form resize events
+        //
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (this.Size.Width > 536)
+            {
+                toolStripTextBoxUrl.Size = new Size(this.Size.Width / 100 * 55, 25);
+                toolStripComboBoxFavorites.Size = new Size(this.Size.Width / 100 * 30, 25);
+            }
+        }
 
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
+        //
         // navigate to source after clicking magnifier button
+        //
         private void ToolStripButtonGoTo_Click(object sender, EventArgs e)
         {
             if (IsValidUri(toolStripTextBoxUrl.Text))
@@ -43,8 +76,9 @@ namespace Brows
                 MessageBox.Show(toolStripTextBoxUrl.Text + "is not a valid url", "Invalid");
             }
         }
-
+        //
         // navigate to source after key enter
+        //
         private void ToolStripTextBoxUrl_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -173,39 +207,25 @@ namespace Brows
             Properties.Settings.Default.Save();
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            if (this.Size.Width > 536)
-            {
-                toolStripTextBoxUrl.Size = new Size(this.Size.Width / 100 * 55, 25);
-                toolStripComboBoxFavorites.Size = new Size(this.Size.Width / 100 * 30, 25);
-            }
-        }
 
-        private void Form1_ResizeEnd(object sender, EventArgs e)
-        {
-            this.Refresh();
-        }
 
-        private void buttonSetStartUp_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string startUpUrl = textBoxSetStartUp.Text;
-            //if (!startUpUrl.StartsWith("https://"))
-            //{
-            //    startUpUrl = "https://" + startUpUrl;
-            //}
+            ComboBox? cbFavorieten = sender as ComboBox;
+            string url = $"https://{cbFavorieten!.SelectedItem}";
             
-            //if (IsValidUri(startUpUrl))
-            //{
-            //    System.Uri url = new Uri(startUpUrl);
-            //    webView21.Source = url;
-            //    Properties.Settings.Default.startUpUrl = startUpUrl;
-            //    Properties.Settings.Default.Save();
-            //}
-            //else
-            //{
-            //    MessageBox.Show(toolStripTextBoxUrl.Text + "is not a valid url (it should start with https://)", "Invalid");
-            //}
+            if (IsValidUri(url))
+            {
+                System.Uri uurl = new Uri(url);
+                webView21.Source = uurl;
+                toolStripTextBoxUrl.Text = url;
+                Properties.Settings.Default.startUpIndex = cbFavorieten.SelectedIndex;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show(toolStripTextBoxUrl.Text + "is not a valid url", "Invalid");
+            }
         }
 
 

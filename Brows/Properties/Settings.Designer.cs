@@ -72,5 +72,17 @@ namespace Brows.Properties {
                 this["favorites"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int startUpIndex {
+            get {
+                return ((int)(this["startUpIndex"]));
+            }
+            set {
+                this["startUpIndex"] = value;
+            }
+        }
     }
 }

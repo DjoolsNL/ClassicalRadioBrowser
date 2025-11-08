@@ -44,9 +44,9 @@
             buttonApplyZoomFactor = new Button();
             numericUpDown1 = new NumericUpDown();
             panel1 = new Panel();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            buttonSetStartUp = new Button();
-            textBoxSetStartUp = new TextBox();
             label1 = new Label();
             panel2 = new Panel();
             label2 = new Label();
@@ -68,7 +68,6 @@
             webView21.Location = new Point(4, 44);
             webView21.Name = "webView21";
             webView21.Size = new Size(528, 623);
-            webView21.Source = new Uri("https://www.concertzender.nl/themakanalen/", UriKind.Absolute);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 0.5D;
             webView21.SourceChanged += WebView21_SourceChanged;
@@ -180,9 +179,9 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ControlLight;
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(comboBox1);
             panel1.Controls.Add(flowLayoutPanel1);
-            panel1.Controls.Add(buttonSetStartUp);
-            panel1.Controls.Add(textBoxSetStartUp);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label3);
@@ -195,6 +194,24 @@
             panel1.Size = new Size(528, 623);
             panel1.TabIndex = 9;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(24, 112);
+            label4.Name = "label4";
+            label4.Size = new Size(108, 15);
+            label4.TabIndex = 16;
+            label4.Text = "Set startup channel";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(160, 109);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(273, 23);
+            comboBox1.TabIndex = 15;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -205,25 +222,6 @@
             flowLayoutPanel1.Size = new Size(493, 424);
             flowLayoutPanel1.TabIndex = 14;
             flowLayoutPanel1.WrapContents = false;
-            // 
-            // buttonSetStartUp
-            // 
-            buttonSetStartUp.Enabled = false;
-            buttonSetStartUp.Location = new Point(24, 109);
-            buttonSetStartUp.Name = "buttonSetStartUp";
-            buttonSetStartUp.Size = new Size(119, 23);
-            buttonSetStartUp.TabIndex = 13;
-            buttonSetStartUp.Text = "Set startup channel";
-            buttonSetStartUp.UseVisualStyleBackColor = true;
-            buttonSetStartUp.Click += buttonSetStartUp_Click;
-            // 
-            // textBoxSetStartUp
-            // 
-            textBoxSetStartUp.Enabled = false;
-            textBoxSetStartUp.Location = new Point(160, 109);
-            textBoxSetStartUp.Name = "textBoxSetStartUp";
-            textBoxSetStartUp.Size = new Size(273, 23);
-            textBoxSetStartUp.TabIndex = 12;
             // 
             // label1
             // 
@@ -316,10 +314,10 @@
         private Label label3;
         private Panel panel2;
         private Label label1;
-        private Button buttonSetStartUp;
-        private TextBox textBoxSetStartUp;
         private FlowLayoutPanel flowLayoutPanel1;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
+        private ComboBox comboBox1;
+        private Label label4;
     }
 }
