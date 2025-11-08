@@ -8,6 +8,9 @@ namespace Brows
 {
     partial class Form1
     {
+        /// <summary>
+        /// Custom App settings
+        /// </summary>
         private void SetPopertiesSettingsDefault()
         {
             // load startup website
@@ -19,9 +22,6 @@ namespace Brows
             this.Text = Properties.Settings.Default.appName;
         }
 
-        //
-        // Form resize events
-        //
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (this.Size.Width > 536)
@@ -36,7 +36,6 @@ namespace Brows
             this.Refresh();
         }
 
-
         private void SetFavoritesForBrowser()
         {
             foreach (var item in Properties.Settings.Default.favorites)
@@ -45,11 +44,11 @@ namespace Brows
             }
         }
 
-        private void SetFavoritesforSettings()
+        private void SetFavoritesForSettings()
         {
             foreach (var item in Properties.Settings.Default.favorites)
             {
-                comboBox1.Items.Add(item!);
+                comboBoxSetingsFavorites.Items.Add(item!);
             }
         }
 
@@ -64,7 +63,7 @@ namespace Brows
             MessageBox.Show(toolStripTextBoxUrl.Text + "is not a valid url", "Invalid");
         }
 
-        private void PopulatePanelOverviewFavorites()
+        private void PopulateFlowLayoutPanelFavorites()
         {
             int n = 0;
             foreach (var item in Properties.Settings.Default.favorites)

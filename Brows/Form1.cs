@@ -10,7 +10,7 @@ namespace Brows
         {
             InitializeComponent();
             SetFavoritesForBrowser();
-            SetFavoritesforSettings();
+            SetFavoritesForSettings();
             SetPopertiesSettingsDefault();
         }
 
@@ -38,10 +38,9 @@ namespace Brows
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Object ob = new Object();
                 EventArgs ee = new EventArgs();
                 // we reuse an existing method 
-                ToolStripButtonGoTo_Click(ob, ee);
+                ToolStripButtonGoTo_Click(sender, ee);
             }
         }
 
@@ -51,7 +50,7 @@ namespace Brows
         private void ToolStripComboBoxFavorites_SelectedIndexChanged(object sender, EventArgs e)
         {
             ToolStripComboBox? tscbFavorieten = sender as ToolStripComboBox;
-            
+
             string url = $"https://{tscbFavorieten!.SelectedItem}";
 
             if (IsValidUri(url))
@@ -67,7 +66,7 @@ namespace Brows
         }
 
         /// <summary>
-        /// Add new url to Favorieten.
+        /// Add new url to Favorites.
         /// </summary>
         private void ToolStripButtonAddToFav_Click(object sender, EventArgs e)
         {
@@ -78,7 +77,6 @@ namespace Brows
                 Properties.Settings.Default.Save();
 
                 toolStripComboBoxFavorites.Items.Clear();
-
                 SetFavoritesForBrowser();
             }
             else
@@ -114,7 +112,7 @@ namespace Brows
                 flowLayoutPanel1.Visible = true;
                 toolStripButtonSettings.ToolTipText = "Back to browser";
                 flowLayoutPanel1.Controls.Clear();
-                PopulatePanelOverviewFavorites();
+                PopulateFlowLayoutPanelFavorites();
             }
         }
 
@@ -129,7 +127,7 @@ namespace Brows
                 toolStripComboBoxFavorites.Items.Clear();
                 SetFavoritesForBrowser();
                 flowLayoutPanel1.Controls.Clear();
-                PopulatePanelOverviewFavorites();
+                PopulateFlowLayoutPanelFavorites();
             }
         }
 
@@ -148,11 +146,11 @@ namespace Brows
             Properties.Settings.Default.Save();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxSetingsFavorites_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox? cbFavorieten = sender as ComboBox;
             string url = $"https://{cbFavorieten!.SelectedItem}";
-            
+
             if (IsValidUri(url))
             {
                 System.Uri uri = new Uri(url);

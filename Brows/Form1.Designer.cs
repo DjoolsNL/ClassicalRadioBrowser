@@ -45,7 +45,7 @@
             numericUpDown1 = new NumericUpDown();
             panel1 = new Panel();
             label4 = new Label();
-            comboBox1 = new ComboBox();
+            comboBoxSetingsFavorites = new ComboBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label1 = new Label();
             panel2 = new Panel();
@@ -180,7 +180,7 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ControlLight;
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(comboBoxSetingsFavorites);
             panel1.Controls.Add(flowLayoutPanel1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
@@ -203,14 +203,14 @@
             label4.TabIndex = 16;
             label4.Text = "Set startup channel";
             // 
-            // comboBox1
+            // comboBoxSetingsFavorites
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(160, 109);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(273, 23);
-            comboBox1.TabIndex = 15;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            comboBoxSetingsFavorites.FormattingEnabled = true;
+            comboBoxSetingsFavorites.Location = new Point(160, 109);
+            comboBoxSetingsFavorites.Name = "comboBoxSetingsFavorites";
+            comboBoxSetingsFavorites.Size = new Size(273, 23);
+            comboBoxSetingsFavorites.TabIndex = 15;
+            comboBoxSetingsFavorites.SelectedIndexChanged += comboBoxSetingsFavorites_SelectedIndexChanged;
             // 
             // flowLayoutPanel1
             // 
@@ -317,7 +317,7 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxSetingsFavorites;
         private Label label4;
     }
 }
