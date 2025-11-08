@@ -15,9 +15,9 @@ namespace Brows
         {
             // load startup website
             string s = "https://" + Properties.Settings.Default.favorites[Properties.Settings.Default.startUpIndex];
-            webView21.Source = new Uri(s, UriKind.Absolute);
+            webView1.Source = new Uri(s, UriKind.Absolute);
 
-            webView21.ZoomFactor = Properties.Settings.Default.zoomfactor / 100;
+            webView1.ZoomFactor = Properties.Settings.Default.zoomfactor / 100;
             textBoxAppName.Text = Properties.Settings.Default.appName;
             this.Text = Properties.Settings.Default.appName;
         }
@@ -77,5 +77,14 @@ namespace Brows
                 n++;
             }
         }
+
+        /// <summary>
+        /// Display current url in the toolStripTextBox
+        /// </summary>
+        private void webView1_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e)
+        {
+            toolStripTextBoxUrl.Text = webView1.Source.ToString();
+        }
+
     }
 }

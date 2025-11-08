@@ -1,5 +1,6 @@
 using Microsoft.VisualBasic;
 using System.Data;
+using System.Security.Policy;
 using System.Xml.Linq;
 
 namespace Brows
@@ -23,7 +24,7 @@ namespace Brows
             if (IsValidUri(toolStripTextBoxUrl.Text))
             {
                 System.Uri uri = new Uri(toolStripTextBoxUrl.Text);
-                webView21.Source = uri;
+                webView1.Source = uri;
             }
             else
             {
@@ -55,8 +56,8 @@ namespace Brows
 
             if (IsValidUri(url))
             {
-                System.Uri uurl = new Uri(url);
-                webView21.Source = uurl;
+                System.Uri uri = new Uri(url);
+                webView1.Source = uri;
                 toolStripTextBoxUrl.Text = url;
             }
             else
@@ -74,7 +75,7 @@ namespace Brows
             {
                 string strippedUrl = toolStripTextBoxUrl.Text.Substring(8);
                 Properties.Settings.Default.favorites.Add(strippedUrl);
-                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Save(); 
 
                 toolStripComboBoxFavorites.Items.Clear();
                 SetFavoritesForBrowser();
@@ -85,14 +86,6 @@ namespace Brows
             }
         }
 
-        /// <summary>
-        /// Display current url in the toolStripTextBox
-        /// </summary>
-        private void WebView21_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e)
-        {
-            toolStripTextBoxUrl.Text = webView21.Source.ToString();
-        }
-
 
         ////////////////////////////// Settings ///////////////////////////////////////////////////
         /// <summary>
@@ -100,15 +93,15 @@ namespace Brows
         /// </summary>
         private void ToolStripButtonSettings_Click(object sender, EventArgs e)
         {
-            if (webView21.Visible == false)
+            if (webView1.Visible == false)
             {
-                webView21.Visible = true;
+                webView1.Visible = true;
                 flowLayoutPanel1.Visible = false;
                 toolStripButtonSettings.ToolTipText = "Settings";
             }
             else
             {
-                webView21.Visible = false;
+                webView1.Visible = false;
                 flowLayoutPanel1.Visible = true;
                 toolStripButtonSettings.ToolTipText = "Back to browser";
                 flowLayoutPanel1.Controls.Clear();
@@ -133,10 +126,10 @@ namespace Brows
 
         private void ButtonApplyZoomFactor_Click(object sender, EventArgs e)
         {
-            webView21.ZoomFactor = (double)numericUpDown1.Value / 100;
+            webView1.ZoomFactor = (double)numericUpDown1.Value / 100;
             Properties.Settings.Default.zoomfactor = (double)numericUpDown1.Value;
             Properties.Settings.Default.Save();
-            webView21.Reload();
+            webView1.Reload();
         }
 
         private void ButtonSetAppName_Click(object sender, EventArgs e)
@@ -154,7 +147,7 @@ namespace Brows
             if (IsValidUri(url))
             {
                 System.Uri uri = new Uri(url);
-                webView21.Source = uri;
+                webView1.Source = uri;
                 toolStripTextBoxUrl.Text = url;
                 Properties.Settings.Default.startUpIndex = cbFavorieten.SelectedIndex;
                 Properties.Settings.Default.Save();

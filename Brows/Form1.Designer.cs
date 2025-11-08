@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            webView1 = new Microsoft.Web.WebView2.WinForms.WebView2();
             toolStrip1 = new ToolStrip();
             toolStripTextBoxUrl = new ToolStripTextBox();
             toolStripButtonGoTo = new ToolStripButton();
@@ -52,25 +52,25 @@
             label2 = new Label();
             label3 = new Label();
             textBoxAppName = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)webView1).BeginInit();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // webView21
+            // webView1
             // 
-            webView21.AllowExternalDrop = true;
-            webView21.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            webView21.CreationProperties = null;
-            webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(4, 44);
-            webView21.Name = "webView21";
-            webView21.Size = new Size(528, 623);
-            webView21.TabIndex = 0;
-            webView21.ZoomFactor = 0.5D;
-            webView21.SourceChanged += WebView21_SourceChanged;
+            webView1.AllowExternalDrop = true;
+            webView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            webView1.CreationProperties = null;
+            webView1.DefaultBackgroundColor = Color.White;
+            webView1.Location = new Point(4, 44);
+            webView1.Name = "webView1";
+            webView1.Size = new Size(528, 623);
+            webView1.TabIndex = 0;
+            webView1.ZoomFactor = 0.5D;
+            webView1.SourceChanged += webView1_SourceChanged;
             // 
             // toolStrip1
             // 
@@ -276,14 +276,14 @@
             BackColor = Color.SeaShell;
             ClientSize = new Size(535, 670);
             Controls.Add(toolStrip1);
-            Controls.Add(webView21);
+            Controls.Add(webView1);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Padding = new Padding(3);
             ResizeEnd += Form1_ResizeEnd;
             Resize += Form1_Resize;
-            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
+            ((System.ComponentModel.ISupportInitialize)webView1).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
@@ -297,7 +297,7 @@
 
         #endregion
 
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView1;
         private ToolStrip toolStrip1;
         private ToolStripTextBox toolStripTextBoxUrl;
         private ToolStripButton toolStripButtonGoTo;
