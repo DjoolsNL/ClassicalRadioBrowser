@@ -77,6 +77,7 @@ namespace Brows
                 t.KeyUp += TextBoxFavorites_KeyUp!;
                 t.AppendText("  " + item);
                 t.Width = 440;
+                toolTip1.SetToolTip(t, "Edit and press key Enter to save edit");
                 flowLayoutPanel1.Controls.Add(t);
                 n++;
             }

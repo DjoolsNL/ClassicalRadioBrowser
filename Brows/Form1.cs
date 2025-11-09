@@ -117,7 +117,6 @@ namespace Brows
                 using TextBox? tb = sender as TextBox;
                 Model.favorites[(int)tb!.Tag!] = tb.Text.Trim();
                 Model.Save();
-
                 toolStripComboBoxFavorites.Items.Clear();
                 SetFavoritesForBrowser();
                 flowLayoutPanel1.Controls.Clear();

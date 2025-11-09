@@ -43,9 +43,9 @@
             buttonSetAppName = new Button();
             buttonApplyZoomFactor = new Button();
             numericUpDown1 = new NumericUpDown();
+            comboBoxSetingsFavorites = new ComboBox();
             panel1 = new Panel();
             label4 = new Label();
-            comboBoxSetingsFavorites = new ComboBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label1 = new Label();
             panel2 = new Panel();
@@ -175,6 +175,16 @@
             toolTip1.SetToolTip(numericUpDown1, "range: 500 - 25");
             numericUpDown1.Value = new decimal(new int[] { 75, 0, 0, 0 });
             // 
+            // comboBoxSetingsFavorites
+            // 
+            comboBoxSetingsFavorites.FormattingEnabled = true;
+            comboBoxSetingsFavorites.Location = new Point(160, 109);
+            comboBoxSetingsFavorites.Name = "comboBoxSetingsFavorites";
+            comboBoxSetingsFavorites.Size = new Size(273, 23);
+            comboBoxSetingsFavorites.TabIndex = 15;
+            toolTip1.SetToolTip(comboBoxSetingsFavorites, "Set startup url");
+            comboBoxSetingsFavorites.SelectedIndexChanged += comboBoxSetingsFavorites_SelectedIndexChanged;
+            // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -202,15 +212,6 @@
             label4.Size = new Size(108, 15);
             label4.TabIndex = 16;
             label4.Text = "Set startup channel";
-            // 
-            // comboBoxSetingsFavorites
-            // 
-            comboBoxSetingsFavorites.FormattingEnabled = true;
-            comboBoxSetingsFavorites.Location = new Point(160, 109);
-            comboBoxSetingsFavorites.Name = "comboBoxSetingsFavorites";
-            comboBoxSetingsFavorites.Size = new Size(273, 23);
-            comboBoxSetingsFavorites.TabIndex = 15;
-            comboBoxSetingsFavorites.SelectedIndexChanged += comboBoxSetingsFavorites_SelectedIndexChanged;
             // 
             // flowLayoutPanel1
             // 
