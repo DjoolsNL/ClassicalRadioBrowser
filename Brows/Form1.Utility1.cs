@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,20 +9,7 @@ namespace Brows
 {
     partial class Form1
     {
-        /// <summary>
-        /// Custom App settings
-        /// </summary>
-        private void SetPopertiesSettingsDefault()
-        {
-            // load startup website
-            string s = "https://" + Properties.Settings.Default.favorites[Properties.Settings.Default.startUpIndex];
-            webView1.Source = new Uri(s, UriKind.Absolute);
-
-            webView1.ZoomFactor = Properties.Settings.Default.zoomfactor / 100;
-            textBoxAppName.Text = Properties.Settings.Default.appName;
-            this.Text = Properties.Settings.Default.appName;
-        }
-
+        // ///////////////////////// Browser /////////////////////////////////////// 
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (this.Size.Width > 536)
@@ -38,17 +26,9 @@ namespace Brows
 
         private void SetFavoritesForBrowser()
         {
-            foreach (var item in Properties.Settings.Default.favorites)
+            foreach (var item in Model.favorites)
             {
                 toolStripComboBoxFavorites.Items.Add(item!);
-            }
-        }
-
-        private void SetFavoritesForSettings()
-        {
-            foreach (var item in Properties.Settings.Default.favorites)
-            {
-                comboBoxSetingsFavorites.Items.Add(item!);
             }
         }
 
@@ -61,6 +41,30 @@ namespace Brows
         private void MsgInvalidUrl()
         {
             MessageBox.Show(toolStripTextBoxUrl.Text + "is not a valid url", "Invalid");
+        }
+
+        /// <summary>
+        /// Display current url in the toolStripTextBox
+        /// </summary>
+        private void webView1_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e)
+        {
+            toolStripTextBoxUrl.Text = webView1.Source.ToString();
+        }
+
+
+        // ////////////////////////// Settings ////////////////////////////////
+        /// <summary>
+        /// Custom App settings
+        /// </summary>
+        private void SetPopertiesSettingsDefault()
+        {
+            // load startup website
+            string s = "https://" + Model.favorites[Model.startUpIndex];
+            webView1.Source = new Uri(s, UriKind.Absolute);
+
+            webView1.ZoomFactor = Model.zoomFactor / 100;
+            textBoxAppName.Text = Model.appName;
+            this.Text = Model.appName;
         }
 
         private void PopulateFlowLayoutPanelFavorites()
@@ -78,13 +82,12 @@ namespace Brows
             }
         }
 
-        /// <summary>
-        /// Display current url in the toolStripTextBox
-        /// </summary>
-        private void webView1_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e)
+        private void SetFavoritesForSettings()
         {
-            toolStripTextBoxUrl.Text = webView1.Source.ToString();
+            foreach (var item in Model.favorites)
+            {
+                comboBoxSetingsFavorites.Items.Add(item!);
+            }
         }
-
     }
 }

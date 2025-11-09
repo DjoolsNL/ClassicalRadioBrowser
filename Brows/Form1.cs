@@ -17,7 +17,7 @@ namespace Brows
 
         // ////////////////////////// Browser ///////////////////////////////////////////////
         /// <summary>
-        /// navigate to source
+        /// navigate webView1 to source
         /// </summary>
         private void ToolStripButtonGoTo_Click(object sender, EventArgs e)
         {
@@ -33,20 +33,19 @@ namespace Brows
         }
 
         /// <summary>
-        /// navigate to source
+        /// navigate webView1 to source
         /// </summary>
         private void ToolStripTextBoxUrl_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 EventArgs ee = new EventArgs();
-                // we reuse an existing method 
                 ToolStripButtonGoTo_Click(sender, ee);
             }
         }
 
         /// <summary>
-        /// navigate to source 
+        /// navigate webView1 to source 
         /// </summary>
         private void ToolStripComboBoxFavorites_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -74,8 +73,8 @@ namespace Brows
             if (IsValidUri(toolStripTextBoxUrl.Text))
             {
                 string strippedUrl = toolStripTextBoxUrl.Text.Substring(8);
-                Properties.Settings.Default.favorites.Add(strippedUrl);
-                Properties.Settings.Default.Save(); 
+                Model.favorites.Add(strippedUrl);
+                Model.Save();
 
                 toolStripComboBoxFavorites.Items.Clear();
                 SetFavoritesForBrowser();
@@ -89,7 +88,7 @@ namespace Brows
 
         ////////////////////////////// Settings ///////////////////////////////////////////////////
         /// <summary>
-        /// Toggle between webView21 and Settings.
+        /// Toggle between webView1 and Settings.
         /// </summary>
         private void ToolStripButtonSettings_Click(object sender, EventArgs e)
         {
@@ -109,13 +108,16 @@ namespace Brows
             }
         }
 
+        /// <summary>
+        /// Save edit favorites upon key Enter
+        /// </summary>
         private void TextBoxFavorites_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 using TextBox? tb = sender as TextBox;
-                Properties.Settings.Default.favorites[(int)tb!.Tag!] = tb.Text.Trim();
-                Properties.Settings.Default.Save();
+                Model.favorites[(int)tb!.Tag!] = tb.Text.Trim();
+                Model.Save();
 
                 toolStripComboBoxFavorites.Items.Clear();
                 SetFavoritesForBrowser();
@@ -124,21 +126,30 @@ namespace Brows
             }
         }
 
+        /// <summary>
+        /// Save edit zoomfactor upon click and apply to webView1
+        /// </summary>
         private void ButtonApplyZoomFactor_Click(object sender, EventArgs e)
         {
             webView1.ZoomFactor = (double)numericUpDown1.Value / 100;
-            Properties.Settings.Default.zoomfactor = (double)numericUpDown1.Value;
-            Properties.Settings.Default.Save();
+            Model.zoomFactor = (double)numericUpDown1.Value;
+            Model.Save();
             webView1.Reload();
         }
 
+        /// <summary>
+        /// Save edit appName upon click
+        /// </summary>
         private void ButtonSetAppName_Click(object sender, EventArgs e)
         {
             this.Text = textBoxAppName.Text;
-            Properties.Settings.Default.appName = textBoxAppName.Text;
-            Properties.Settings.Default.Save();
+            Model.appName = textBoxAppName.Text;
+            Model.Save();
         }
 
+        /// <summary>
+        /// Save edit startup Url
+        /// </summary>
         private void comboBoxSetingsFavorites_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox? cbFavorieten = sender as ComboBox;
@@ -149,8 +160,8 @@ namespace Brows
                 System.Uri uri = new Uri(url);
                 webView1.Source = uri;
                 toolStripTextBoxUrl.Text = url;
-                Properties.Settings.Default.startUpIndex = cbFavorieten.SelectedIndex;
-                Properties.Settings.Default.Save();
+                Model.startUpIndex = cbFavorieten.SelectedIndex;
+                Model.Save();
             }
             else
             {
